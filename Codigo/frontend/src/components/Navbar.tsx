@@ -92,7 +92,7 @@ export function Navbar() {
           >
             {/* Header do Menu */}
             <div className="flex justify-between items-center pb-8 border-b border-white/10">
-              <span className="text-xl font-semibold tracking-wider text-purple-200">
+              <span className="text-xl font-semibold">
                 {t.nav.menu}
               </span>
               <button
