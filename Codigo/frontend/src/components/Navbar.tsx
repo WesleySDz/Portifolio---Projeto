@@ -22,10 +22,26 @@ export function Navbar() {
   const navLinks = [
     { name: t.nav.home, path: "/", icon: HomeIcon },
     { name: t.nav.about, path: "/about", icon: User },
-    { name: t.nav.experience, path: "/#experience", icon: Code2 },
-    { name: t.nav.projects, path: "/#projects", icon: FolderGit2 },
-    { name: t.nav.contact, path: "/#contact", icon: Mail },
+    { name: t.nav.experience, path: "/experience", icon: Code2 },
+    { name: t.nav.projects, path: "/projects", icon: FolderGit2 },
+    { name: t.nav.contact, path: "/contact", icon: Mail },
   ];
+
+  const getHeaderTitle = () => {
+    switch (location.pathname) {
+      case "/about":
+        return t.nav.about;
+      case "/experience":
+        return t.nav.experience;
+      case "/projects":
+        return t.projects.title;
+      case "/contact":
+        return t.nav.contact;
+      case "/":
+      default:
+        return "Hello";
+    }
+  };
 
   return (
     <>
@@ -34,7 +50,9 @@ export function Navbar() {
           to="/"
           className="flex flex-col group cursor-pointer no-underline text-white"
         >
-          <span className="text-lg mb-1 font-serif tracking-wider">Hello</span>
+          <span className="text-lg mb-1 font-serif tracking-wider">
+            {getHeaderTitle()}
+          </span>
           <hr className="w-full border-t-[1.5px] border-white m-0" />
         </Link>
 
