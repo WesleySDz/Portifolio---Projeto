@@ -1,4 +1,5 @@
 import { useLanguage } from "../contexts/LanguageContext";
+import { TechCarousel } from "../components/TechCarousel";
 
 export function Home() {
   const { t } = useLanguage();
@@ -15,43 +16,7 @@ export function Home() {
         </h2>
       </main>
 
-      <section className="absolute bottom-30 w-full bg-black/40 py-5">
-        <ul className="flex list-none p-0 m-0 gap-12 md:gap-16 pl-10 md:pl-20 items-center overflow-x-hidden">
-          <li>
-            <img src="/java-icon.svg" alt="Java" className="h-[50px] w-auto" />
-          </li>
-          <li>
-            <img src="/react-icon.svg" alt="React" className="h-12.5 w-auto" />
-          </li>
-          <li>
-            <img src="/cpp-icon.svg" alt="C++" className="h-12.5 w-auto" />
-          </li>
-          <li>
-            <img
-              src="/ts-icon.svg"
-              alt="TypeScript"
-              className="h-12.5 w-auto"
-            />
-          </li>
-          <li>
-            <img src="/java-icon.svg" alt="Java" className="h-12.5 w-auto" />
-          </li>
-          <li>
-            <img src="/react-icon.svg" alt="React" className="h-12.5 w-auto" />
-          </li>
-          <li>
-            <img src="/cpp-icon.svg" alt="C++" className="h-12.5 w-auto" />
-          </li>
-          <li>
-            <img
-              src="/ts-icon.svg"
-              alt="TypeScript"
-              className="h-12.5 w-auto"
-            />
-          </li>
-        </ul>
-      </section>
-
+      <TechCarousel />
     </>
   );
 }
