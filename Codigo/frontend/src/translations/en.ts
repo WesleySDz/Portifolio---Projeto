@@ -16,6 +16,13 @@ export const en = {
     role: "Software Engineer Student",
     musicPlayer: "Music Player"
   },
+  musicPlayer: {
+    title: "Music Player",
+    playlist: "Playlist",
+    nowPlaying: "Now Playing",
+    shuffle: "Shuffle",
+    repeat: "Repeat"
+  },
   about: {
     title: "About Me",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum aut, quisquam nisi eaque rerum explicabo, nam exercitationem praesentium nemo dolor, fugit mollitia error nobis quae illo laudantium eligendi dicta esse."

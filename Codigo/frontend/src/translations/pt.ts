@@ -16,6 +16,13 @@ export const pt = {
     role: "Estudante de Engenharia de Software",
     musicPlayer: "Reprodutor de Música"
   },
+  musicPlayer: {
+    title: "Reprodutor de Música",
+    playlist: "Lista de Músicas",
+    nowPlaying: "Tocando Agora",
+    shuffle: "Aleatório",
+    repeat: "Repetir"
+  },
   about: {
     title: "Sobre Mim",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum aut, quisquam nisi eaque rerum explicabo, nam exercitationem praesentium nemo dolor, fugit mollitia error nobis quae illo laudantium eligendi dicta esse."
