@@ -168,7 +168,7 @@ export function MusicPlayer() {
       {/* Popover do Menu do Player */}
       <div
         className={`
-          mb-6 w-[340px] md:w-[380px] bg-[#0c0314] border border-[#9b29c9]/30 rounded-[28px] 
+          mb-6 w-85 md:w-95 bg-[#0c0314] border border-[#9b29c9]/30 rounded-[28px] 
           shadow-[0_0_50px_rgba(155,41,201,0.25),inset_0_0_20px_rgba(155,41,201,0.05)] p-6 text-white overflow-hidden 
           transition-all duration-300 ease-out origin-bottom-right
           ${isOpen ? "opacity-100 scale-100 translate-y-0 pointer-events-auto" : "opacity-0 scale-90 translate-y-8 pointer-events-none absolute bottom-full right-0"}
@@ -224,10 +224,10 @@ export function MusicPlayer() {
                     {/* Camada do equalizador quando está tocando */}
                     {idx === currentTrackIndex && isPlaying && (
                       <div className="absolute inset-0 bg-black/60 backdrop-blur-[1px] flex items-center justify-center">
-                        <span className="flex items-end gap-[2px] h-3 w-4 justify-center">
-                          <span className="w-[2px] bg-[#b026ff] animate-[musicWave_1s_ease-in-out_infinite] h-3 rounded-full shadow-[0_0_5px_#b026ff]"></span>
-                          <span className="w-[2px] bg-[#b026ff] animate-[musicWave_1s_ease-in-out_infinite_0.2s] h-2 rounded-full shadow-[0_0_5px_#b026ff]"></span>
-                          <span className="w-[2px] bg-[#b026ff] animate-[musicWave_1s_ease-in-out_infinite_0.4s] h-3 rounded-full shadow-[0_0_5px_#b026ff]"></span>
+                        <span className="flex items-end gap-0.5 h-3 w-4 justify-center">
+                          <span className="w-0.5 bg-[#b026ff] animate-[musicWave_1s_ease-in-out_infinite] h-3 rounded-full shadow-[0_0_5px_#b026ff]"></span>
+                          <span className="w-0.5 bg-[#b026ff] animate-[musicWave_1s_ease-in-out_infinite_0.2s] h-2 rounded-full shadow-[0_0_5px_#b026ff]"></span>
+                          <span className="w-0.5 bg-[#b026ff] animate-[musicWave_1s_ease-in-out_infinite_0.4s] h-3 rounded-full shadow-[0_0_5px_#b026ff]"></span>
                         </span>
                       </div>
                     )}
@@ -251,7 +251,7 @@ export function MusicPlayer() {
           </ul>
         </div>
 
-        <div className="h-px bg-gradient-to-r from-transparent via-[#b026ff]/20 to-transparent mb-6"></div>
+        <div className="h-px bg-linear-to-r from-transparent via-[#b026ff]/20 to-transparent mb-6"></div>
 
         {/* Informações da Faixa Atual */}
         <div className="mb-6 flex justify-between items-center gap-3">
@@ -260,7 +260,7 @@ export function MusicPlayer() {
               {t.musicPlayer?.nowPlaying || "Now Playing"}
             </p>
             <div className="flex items-center gap-4 min-w-0">
-              <div className="w-[52px] h-[52px] shrink-0 rounded-xl bg-gradient-to-br from-[#b026ff] to-[#4a1062] flex items-center justify-center shadow-[0_0_20px_rgba(176,38,255,0.4)] border border-white/10 relative overflow-hidden">
+              <div className="w-13 h-13 shrink-0 rounded-xl bg-linear-to-br from-[#b026ff] to-[#4a1062] flex items-center justify-center shadow-[0_0_20px_rgba(176,38,255,0.4)] border border-white/10 relative overflow-hidden">
                 {TRACKS[currentTrackIndex].cover ? (
                   <img
                     src={TRACKS[currentTrackIndex].cover}
@@ -322,7 +322,7 @@ export function MusicPlayer() {
             </button>
             <button
               onClick={togglePlay}
-              className="w-[60px] h-[60px] flex items-center justify-center bg-[#b026ff] hover:bg-[#c64dff] rounded-full text-white shadow-[0_0_30px_rgba(176,38,255,0.6)] hover:shadow-[0_0_45px_rgba(176,38,255,0.8)] hover:scale-105 transition-all cursor-pointer border border-white/20"
+              className="w-15 h-15 flex items-center justify-center bg-[#b026ff] hover:bg-[#c64dff] rounded-full text-white shadow-[0_0_30px_rgba(176,38,255,0.6)] hover:shadow-[0_0_45px_rgba(176,38,255,0.8)] hover:scale-105 transition-all cursor-pointer border border-white/20"
             >
               {isPlaying ? (
                 <Pause size={28} className="fill-current" />
@@ -377,7 +377,7 @@ export function MusicPlayer() {
         onClick={() => setIsOpen(!isOpen)}
         className={`
           border-[2.5px] border-[#b026ff] rounded-full p-2 cursor-pointer flex items-center justify-center 
-          w-16 h-16 md:w-[75px] md:h-[75px] transition-all duration-300 z-40 bg-[#0c0314] relative overflow-hidden
+          w-16 h-16 md:w-18.75 md:h-18.75 transition-all duration-300 z-40 bg-[#0c0314] relative overflow-hidden
           ${isOpen ? "scale-110 shadow-[0_0_30px_rgba(176,38,255,0.6)]" : "hover:scale-110 shadow-[0_0_20px_rgba(176,38,255,0.35)]"}
           ${isPlaying && !isOpen ? "animate-[pulseShadow_2s_infinite]" : ""}
         `}

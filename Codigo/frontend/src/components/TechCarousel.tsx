@@ -54,7 +54,7 @@ export function TechCarousel() {
 
   return (
     <section
-      className="absolute bottom-24 w-full overflow-hidden py-6"
+      className="absolute bottom-24 w-full overflow-hidden py-6 relative z-10"
       aria-label="Tecnologias que conheço"
     >
       {/* Gradiente de fade na borda esquerda */}
