@@ -54,21 +54,23 @@ export function TechCarousel() {
 
   return (
     <section
-      className="absolute bottom-24 w-full overflow-hidden py-6 relative z-10"
+      className="bottom-24 w-full overflow-hidden py-6 relative z-10"
       aria-label="Tecnologias que conheço"
     >
       {/* Gradiente de fade na borda esquerda */}
       <div
         className="absolute left-0 top-0 z-10 h-full w-24 pointer-events-none"
         style={{
-          background: "linear-gradient(to right, #1b0f1e 0%, transparent 100%)",
+          background:
+            "linear-gradient(to right, var(--bg-page-to) 0%, transparent 100%)",
         }}
       />
       {/* Gradiente de fade na borda direita */}
       <div
         className="absolute right-0 top-0 z-10 h-full w-24 pointer-events-none"
         style={{
-          background: "linear-gradient(to left, #1b0f1e 0%, transparent 100%)",
+          background:
+            "linear-gradient(to left, var(--bg-page-to) 0%, transparent 100%)",
         }}
       />
 
@@ -136,7 +138,7 @@ function TechItem({ name, icon }: TechItemProps) {
 
   return (
     <div
-      className="flex flex-col items-center justify-center gap-2 mx-8 md:mx-12 shrink-0 cursor-default"
+      className="flex flex-col items-center justify-center gap-2 mx-8 md:mx-12 shrink-0 cursor-default font-sans"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       aria-label={name}
@@ -146,14 +148,14 @@ function TechItem({ name, icon }: TechItemProps) {
         className="relative flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-2xl border transition-all duration-300"
         style={{
           background: isHovered
-            ? "rgba(176, 38, 255, 0.12)"
-            : "rgba(255, 255, 255, 0.04)",
+            ? "var(--glow-accent-subtle)"
+            : "var(--bg-glass)",
           borderColor: isHovered
-            ? "rgba(176, 38, 255, 0.5)"
-            : "rgba(255, 255, 255, 0.08)",
+            ? "var(--border-accent)"
+            : "var(--border-subtle)",
           transform: isHovered ? "scale(1.15) translateY(-4px)" : "scale(1)",
           boxShadow: isHovered
-            ? "0 0 20px rgba(176, 38, 255, 0.4), 0 8px 24px rgba(0,0,0,0.4)"
+            ? "var(--shadow-neon-sm), var(--shadow-card)"
             : "0 2px 8px rgba(0,0,0,0.2)",
         }}
       >
@@ -163,7 +165,7 @@ function TechItem({ name, icon }: TechItemProps) {
           className="w-8 h-8 md:w-9 md:h-9 object-contain transition-all duration-300"
           style={{
             filter: isHovered
-              ? "drop-shadow(0 0 8px rgba(176,38,255,0.6)) brightness(1.1)"
+              ? "drop-shadow(0 0 8px var(--glow-accent-medium)) brightness(1.1)"
               : "brightness(0.85)",
             opacity: isHovered ? 1 : 0.75,
           }}
@@ -175,7 +177,7 @@ function TechItem({ name, icon }: TechItemProps) {
             className="absolute inset-0 rounded-2xl pointer-events-none"
             style={{
               background:
-                "radial-gradient(circle at center, rgba(176,38,255,0.15) 0%, transparent 70%)",
+                "radial-gradient(circle at center, var(--glow-accent-subtle) 0%, transparent 70%)",
             }}
           />
         )}
@@ -185,7 +187,7 @@ function TechItem({ name, icon }: TechItemProps) {
       <span
         className="text-xs font-medium tracking-wide transition-all duration-300"
         style={{
-          color: isHovered ? "rgba(176, 38, 255, 1)" : "rgba(255,255,255,0.35)",
+          color: isHovered ? "var(--color-accent-light)" : "var(--text-subtle)",
           opacity: isHovered ? 1 : 0.7,
           transform: isHovered ? "translateY(0)" : "translateY(2px)",
         }}

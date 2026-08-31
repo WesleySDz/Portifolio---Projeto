@@ -168,21 +168,21 @@ export function MusicPlayer() {
       {/* Popover do Menu do Player */}
       <div
         className={`
-          mb-6 w-85 md:w-95 bg-[#0c0314] border border-[#9b29c9]/30 rounded-[28px] 
-          shadow-[0_0_50px_rgba(155,41,201,0.25),inset_0_0_20px_rgba(155,41,201,0.05)] p-6 text-white overflow-hidden 
+          mb-6 w-85 md:w-95 bg-(--bg-dark) border border-(--border-accent) rounded-[28px] 
+          shadow-(--shadow-modal) p-6 text-white overflow-hidden 
           transition-all duration-300 ease-out origin-bottom-right
           ${isOpen ? "opacity-100 scale-100 translate-y-0 pointer-events-auto" : "opacity-0 scale-90 translate-y-8 pointer-events-none absolute bottom-full right-0"}
         `}
       >
         {/* Cabeçalho */}
         <div className="flex items-center justify-between mb-6">
-          <h3 className="font-bold flex items-center gap-2 text-base">
-            <ListMusic size={20} className="text-[#b026ff]" />
+          <h3 className="font-bold flex items-center gap-2 text-base font-serif">
+            <ListMusic size={20} className="text-accent" />
             {t.musicPlayer?.title || t.home?.musicPlayer || "Music Player"}
           </h3>
           <button
             onClick={() => setIsOpen(false)}
-            className="text-gray-400 hover:text-white transition-colors cursor-pointer"
+            className="text-(--text-muted)r:text-white transition-colors cursor-pointer"
           >
             <X size={20} />
           </button>
@@ -191,7 +191,7 @@ export function MusicPlayer() {
         {/* Seção da Lista de Músicas */}
         <div className="mb-6">
           <div className="flex items-center mb-3">
-            <h4 className="text-[11px] text-[#b026ff] font-bold uppercase tracking-[0.2em]">
+            <h4 className="text-[11px] text-accent-light font-bold uppercase tracking-[0.2em]">
               {t.musicPlayer?.playlist || "Playlist"}
             </h4>
           </div>
@@ -201,9 +201,9 @@ export function MusicPlayer() {
                 <button
                   onClick={() => selectTrack(idx)}
                   className={`w-full text-left px-3 py-2.5 rounded-xl text-sm transition-all flex items-center gap-3 cursor-pointer group
-                    ${idx === currentTrackIndex ? "bg-[#b026ff]/10 border border-[#b026ff]/30 text-white shadow-[0_0_15px_rgba(176,38,255,0.1)]" : "text-gray-400 hover:bg-white/5 hover:text-gray-200 border border-transparent"}`}
+                    ${idx === currentTrackIndex ? "bg-accent/15 border border-(--border-accent) text-white shadow-(--shadow-neon-sm)" : "text-(--text-muted) hover:bg-(--bg-glass) hover:text-white border border-transparent"}`}
                 >
-                  <div className="w-8 h-8 rounded-lg relative overflow-hidden flex items-center justify-center bg-black/40 shrink-0 border border-white/10">
+                  <div className="w-8 h-8 rounded-lg relative overflow-hidden flex items-center justify-center bg-black/40 shrink-0 border border-(--border-subtle)">
                     {track.cover ? (
                       <img
                         src={track.cover}
@@ -215,8 +215,8 @@ export function MusicPlayer() {
                         size={14}
                         className={
                           idx === currentTrackIndex
-                            ? "text-[#b026ff]"
-                            : "text-gray-500"
+                            ? "text-accent-light"
+                            : "text-(--text-subtle)"
                         }
                       />
                     )}
@@ -225,9 +225,9 @@ export function MusicPlayer() {
                     {idx === currentTrackIndex && isPlaying && (
                       <div className="absolute inset-0 bg-black/60 backdrop-blur-[1px] flex items-center justify-center">
                         <span className="flex items-end gap-0.5 h-3 w-4 justify-center">
-                          <span className="w-0.5 bg-[#b026ff] animate-[musicWave_1s_ease-in-out_infinite] h-3 rounded-full shadow-[0_0_5px_#b026ff]"></span>
-                          <span className="w-0.5 bg-[#b026ff] animate-[musicWave_1s_ease-in-out_infinite_0.2s] h-2 rounded-full shadow-[0_0_5px_#b026ff]"></span>
-                          <span className="w-0.5 bg-[#b026ff] animate-[musicWave_1s_ease-in-out_infinite_0.4s] h-3 rounded-full shadow-[0_0_5px_#b026ff]"></span>
+                          <span className="w-0.5 bg-accent animate-[musicWave_1s_ease-in-out_infinite] h-3 rounded-full shadow-[0_0_5px_var(--color-accent)]"></span>
+                          <span className="w-0.5 bg-accent animate-[musicWave_1s_ease-in-out_infinite_0.2s] h-2 rounded-full shadow-[0_0_5px_var(--color-accent)]"></span>
+                          <span className="w-0.5 bg-accent animate-[musicWave_1s_ease-in-out_infinite_0.4s] h-3 rounded-full shadow-[0_0_5px_var(--color-accent)]"></span>
                         </span>
                       </div>
                     )}
@@ -235,7 +235,7 @@ export function MusicPlayer() {
                   <span className="w-3 text-center text-xs opacity-60 font-medium">
                     {idx + 1}
                   </span>
-                  <span className="truncate flex-1 font-medium">
+                  <span className="truncate flex-1 font-medium font-sans">
                     {track.title}
                   </span>
                   <span className="text-xs opacity-50 font-medium">
@@ -251,16 +251,16 @@ export function MusicPlayer() {
           </ul>
         </div>
 
-        <div className="h-px bg-linear-to-r from-transparent via-[#b026ff]/20 to-transparent mb-6"></div>
+        <div className="h-px bg-linear-to-r from-transparent via-(--border-accent-subtle) to-transparent mb-6"></div>
 
         {/* Informações da Faixa Atual */}
         <div className="mb-6 flex justify-between items-center gap-3">
           <div className="min-w-0 flex-1">
-            <p className="text-[11px] text-[#b026ff] font-bold mb-3 uppercase tracking-[0.2em]">
+            <p className="text-[11px] text-accent-light font-bold mb-3 uppercase tracking-[0.2em]">
               {t.musicPlayer?.nowPlaying || "Now Playing"}
             </p>
             <div className="flex items-center gap-4 min-w-0">
-              <div className="w-13 h-13 shrink-0 rounded-xl bg-linear-to-br from-[#b026ff] to-[#4a1062] flex items-center justify-center shadow-[0_0_20px_rgba(176,38,255,0.4)] border border-white/10 relative overflow-hidden">
+              <div className="w-13 h-13 shrink-0 rounded-xl bg-linear-to-br from-accent to-accent-secondary flex items-center justify-center shadow-(--shadow-neon-sm) border border-white/10 relative overflow-hidden">
                 {TRACKS[currentTrackIndex].cover ? (
                   <img
                     src={TRACKS[currentTrackIndex].cover}
@@ -272,10 +272,10 @@ export function MusicPlayer() {
                 )}
               </div>
               <div className="min-w-0 flex-1">
-                <p className="text-[15px] font-bold truncate text-white tracking-wide">
+                <p className="text-[15px] font-bold truncate text-white tracking-wide font-serif">
                   {TRACKS[currentTrackIndex].title}
                 </p>
-                <p className="text-xs text-gray-400 mt-1 truncate">
+                <p className="text-xs text-(--text-muted) mt-1 truncate font-sans">
                   {TRACKS[currentTrackIndex].album
                     ? `${TRACKS[currentTrackIndex].album} • `
                     : ""}
@@ -287,7 +287,7 @@ export function MusicPlayer() {
         </div>
 
         {/* Barra de Progresso */}
-        <div className="flex items-center gap-3 mb-6 text-xs text-gray-400 font-medium">
+        <div className="flex items-center gap-3 mb-6 text-xs text-(--text-muted) font-medium">
           <span className="w-8 text-right">{formatTime(progress)}</span>
           <input
             type="range"
@@ -307,8 +307,8 @@ export function MusicPlayer() {
             title={t.musicPlayer?.shuffle || "Shuffle"}
             className={`transition-all cursor-pointer hover:scale-110 ${
               isShuffle
-                ? "text-[#b026ff] opacity-100 drop-shadow-[0_0_8px_rgba(176,38,255,0.8)]"
-                : "text-gray-400 opacity-60 hover:opacity-100"
+                ? "text-accent-light opacity-100 drop-shadow-[0_0_8px_var(--color-accent)]"
+                : "text-(--text-muted)ity-60 hover:opacity-100"
             }`}
           >
             <Shuffle size={18} />
@@ -316,13 +316,13 @@ export function MusicPlayer() {
           <div className="flex items-center gap-6">
             <button
               onClick={playPrev}
-              className="text-gray-200 hover:text-white hover:scale-110 transition-all cursor-pointer"
+              className="text-(--text-secondary) hover:text-white hover:scale-110 transition-all cursor-pointer"
             >
               <SkipBack size={26} className="fill-current" />
             </button>
             <button
               onClick={togglePlay}
-              className="w-15 h-15 flex items-center justify-center bg-[#b026ff] hover:bg-[#c64dff] rounded-full text-white shadow-[0_0_30px_rgba(176,38,255,0.6)] hover:shadow-[0_0_45px_rgba(176,38,255,0.8)] hover:scale-105 transition-all cursor-pointer border border-white/20"
+              className="w-15 h-15 flex items-center justify-center bg-accent hover:bg-accent-hover rounded-full text-white shadow-(--shadow-neon-md) hover:shadow-(--shadow-neon-lg) hover:scale-105 transition-all cursor-pointer border border-white/20"
             >
               {isPlaying ? (
                 <Pause size={28} className="fill-current" />
@@ -332,7 +332,7 @@ export function MusicPlayer() {
             </button>
             <button
               onClick={playNext}
-              className="text-gray-200 hover:text-white hover:scale-110 transition-all cursor-pointer"
+              className="text-(--text-secondary) hover:text-white hover:scale-110 transition-all cursor-pointer"
             >
               <SkipForward size={26} className="fill-current" />
             </button>
@@ -342,8 +342,8 @@ export function MusicPlayer() {
             title={t.musicPlayer?.repeat || "Repeat"}
             className={`transition-all cursor-pointer hover:scale-110 ${
               isRepeat
-                ? "text-[#b026ff] opacity-100 drop-shadow-[0_0_8px_rgba(176,38,255,0.8)]"
-                : "text-gray-400 opacity-60 hover:opacity-100"
+                ? "text-accent-light opacity-100 drop-shadow-[0_0_8px_var(--color-accent)]"
+                : "text-(--text-muted) opacity-60 hover:opacity-100"
             }`}
           >
             <Repeat size={18} />
@@ -354,7 +354,7 @@ export function MusicPlayer() {
         <div className="flex items-center gap-3 px-1">
           <button
             onClick={toggleMute}
-            className="text-gray-400 hover:text-white transition-colors cursor-pointer"
+            className="text-(--text-muted) hover:text-white transition-colors cursor-pointer"
           >
             <Volume size={18} />
           </button>
@@ -367,7 +367,7 @@ export function MusicPlayer() {
             onChange={handleVolumeChange}
             className="flex-1 h-1.5 bg-gray-800 rounded-full appearance-none cursor-pointer range-slider-custom"
           />
-          <Volume2 size={18} className="text-gray-400" />
+          <Volume2 size={18} className="text-(--text-muted)" />
         </div>
       </div>
 
@@ -376,9 +376,9 @@ export function MusicPlayer() {
         aria-label={t.home?.musicPlayer || "Music Player"}
         onClick={() => setIsOpen(!isOpen)}
         className={`
-          border-[2.5px] border-[#b026ff] rounded-full p-2 cursor-pointer flex items-center justify-center 
-          w-16 h-16 md:w-18.75 md:h-18.75 transition-all duration-300 z-40 bg-[#0c0314] relative overflow-hidden
-          ${isOpen ? "scale-110 shadow-[0_0_30px_rgba(176,38,255,0.6)]" : "hover:scale-110 shadow-[0_0_20px_rgba(176,38,255,0.35)]"}
+          border-[2.5px] border-accent rounded-full p-2 cursor-pointer flex items-center justify-center 
+          w-16 h-16 md:w-18.75 md:h-18.75 transition-all duration-300 z-40 bg-(--bg-dark) relative overflow-hidden
+          ${isOpen ? "scale-110 shadow-(--shadow-neon-md)" : "hover:scale-110 shadow-(--shadow-neon-sm)"}
           ${isPlaying && !isOpen ? "animate-[pulseShadow_2s_infinite]" : ""}
         `}
       >
@@ -398,8 +398,8 @@ export function MusicPlayer() {
               cx="50"
               cy="50"
               r="44"
-              fill="#12061c"
-              stroke="#b026ff"
+              fill="var(--bg-page-to)"
+              stroke="var(--color-accent)"
               strokeWidth="2.5"
               strokeOpacity="0.9"
             />
@@ -407,14 +407,14 @@ export function MusicPlayer() {
             {/* Sulcos Ranhurados (Grooves) */}
             <path
               d="M 18 50 A 32 32 0 0 1 82 50"
-              stroke="#b026ff"
+              stroke="var(--color-accent)"
               strokeWidth="1.5"
               strokeOpacity="0.35"
               strokeLinecap="round"
             />
             <path
               d="M 68 70 A 25 25 0 0 1 32 30"
-              stroke="#b026ff"
+              stroke="var(--color-accent)"
               strokeWidth="1.5"
               strokeOpacity="0.35"
               strokeLinecap="round"
@@ -423,7 +423,7 @@ export function MusicPlayer() {
               cx="50"
               cy="50"
               r="36"
-              stroke="#b026ff"
+              stroke="var(--color-accent)"
               strokeWidth="1"
               strokeOpacity="0.25"
               strokeDasharray="5 3"
@@ -432,7 +432,7 @@ export function MusicPlayer() {
               cx="50"
               cy="50"
               r="28"
-              stroke="#b026ff"
+              stroke="var(--color-accent)"
               strokeWidth="1"
               strokeOpacity="0.3"
               strokeDasharray="7 4"
@@ -441,15 +441,20 @@ export function MusicPlayer() {
               cx="50"
               cy="50"
               r="20"
-              stroke="#b026ff"
+              stroke="var(--color-accent)"
               strokeWidth="1"
               strokeOpacity="0.2"
             />
 
             {/* Rótulo Central Neon */}
-            <circle cx="50" cy="50" r="13" fill="#b026ff" />
-            <circle cx="50" cy="50" r="10" fill="#7b1fa2" />
-            <circle cx="50" cy="50" r="3.5" fill="#0c0314" />
+            <circle cx="50" cy="50" r="13" fill="var(--color-accent)" />
+            <circle
+              cx="50"
+              cy="50"
+              r="10"
+              fill="var(--color-accent-secondary)"
+            />
+            <circle cx="50" cy="50" r="3.5" fill="var(--bg-dark)" />
           </g>
 
           {/* Braço da Agulha (Desce no vinil quando tocando, levanta para fora quando pausado) */}
@@ -465,11 +470,11 @@ export function MusicPlayer() {
               cx="78"
               cy="22"
               r="5.5"
-              fill="#0c0314"
-              stroke="#b026ff"
+              fill="var(--bg-dark)"
+              stroke="var(--color-accent)"
               strokeWidth="2"
             />
-            <circle cx="78" cy="22" r="2.5" fill="#b026ff" />
+            <circle cx="78" cy="22" r="2.5" fill="var(--color-accent)" />
 
             {/* Haste Metálica do Braço */}
             <path
@@ -481,7 +486,7 @@ export function MusicPlayer() {
             />
             <path
               d="M 78 22 L 70 42 L 58 52"
-              stroke="#b026ff"
+              stroke="var(--color-accent)"
               strokeWidth="1"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -495,7 +500,7 @@ export function MusicPlayer() {
               height="10"
               rx="2"
               transform="rotate(-25 57 54)"
-              fill="#b026ff"
+              fill="var(--color-accent)"
               stroke="#ffffff"
               strokeWidth="1"
             />
@@ -503,7 +508,7 @@ export function MusicPlayer() {
         </svg>
       </button>
 
-      {/* Estilos globais para animações personalizadas e slider */}
+      {/* Estilos locais complementares para keyframes específicos */}
       <style>
         {`
           @keyframes musicWave {
@@ -511,51 +516,9 @@ export function MusicPlayer() {
             50% { transform: scaleY(1); opacity: 1; }
           }
           @keyframes pulseShadow {
-            0% { box-shadow: 0 0 15px rgba(176,38,255,0.4); }
-            50% { box-shadow: 0 0 35px rgba(176,38,255,0.8); }
-            100% { box-shadow: 0 0 15px rgba(176,38,255,0.4); }
-          }
-          
-          /* Estilos do Slider Personalizado */
-          .range-slider-custom::-webkit-slider-thumb {
-            appearance: none;
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: #ffffff;
-            box-shadow: 0 0 10px 4px rgba(176,38,255,0.6);
-            cursor: pointer;
-            border: none;
-          }
-          .range-slider-custom::-moz-range-thumb {
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: #ffffff;
-            box-shadow: 0 0 10px 4px rgba(176,38,255,0.6);
-            cursor: pointer;
-            border: none;
-          }
-          .range-slider-custom::-webkit-slider-runnable-track {
-            background: linear-gradient(90deg, #b026ff var(--progress-width, 0%), #1f2937 var(--progress-width, 0%));
-            height: 6px;
-            border-radius: 9999px;
-          }
-
-          /* Barra de Rolagem Personalizada da Lista de Músicas */
-          .custom-scrollbar::-webkit-scrollbar {
-            width: 4px;
-          }
-          .custom-scrollbar::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 4px;
-          }
-          .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: rgba(176,38,255, 0.3);
-            border-radius: 4px;
-          }
-          .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-            background: rgba(176,38,255, 0.6);
+            0% { box-shadow: 0 0 15px var(--glow-accent-medium); }
+            50% { box-shadow: 0 0 35px var(--glow-accent-strong); }
+            100% { box-shadow: 0 0 15px var(--glow-accent-medium); }
           }
         `}
       </style>

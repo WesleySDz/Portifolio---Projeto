@@ -8,6 +8,7 @@ import {
   FolderGit2,
   Mail,
   Globe,
+  ChevronRight,
 } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
 
@@ -48,18 +49,20 @@ export function Navbar() {
       <header className="flex justify-between items-start px-10 py-10 md:px-20 md:py-12 z-20">
         <Link
           to="/"
-          className="flex flex-col group cursor-pointer no-underline text-white"
+          className="flex flex-col items-start group cursor-pointer no-underline text-white relative"
         >
-          <span className="text-lg mb-1 font-serif tracking-wider">
+          {/* Título da página atual */}
+          <span className="text-xl mb-2 font-serif tracking-[0.12em] leading-none">
             {getHeaderTitle()}
           </span>
-          <hr className="w-full border-t-[1.5px] border-white m-0" />
+          {/* Linha abaixo */}
+          <div className="w-[140%] h-[2.5px] bg-white rounded-full opacity-90" />
         </Link>
 
         <div className="flex items-center gap-6">
           <button
             onClick={toggleLanguage}
-            className="flex items-center gap-2 text-white bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-full transition-colors cursor-pointer"
+            className="flex items-center gap-2 text-white bg-(--bg-glass) hoverhover:bg-(--bg-glass-hover)er border-(--border-subtle) px-3 py-1.5 rounded-full transition-colors cursor-pointer"
             aria-label="Toggle Language"
           >
             <Globe size={18} />
@@ -71,11 +74,11 @@ export function Navbar() {
             onClick={toggleMenu}
             aria-label={t.nav.menu}
             aria-expanded={isOpen}
-            className="bg-transparent border-none cursor-pointer flex flex-col gap-2 rounded-lg"
+            className="bg-transparent border-none cursor-pointer flex flex-col gap-2 rounded-lg group p-2 hover:bg-(--bg-glass) transition-all"
           >
-            <span className="block bg-white h-0.5 w-11.25"></span>
-            <span className="block bg-white h-0.5 w-11.25"></span>
-            <span className="block bg-white h-0.5 w-6.25"></span>
+            <span className="block bg-white group-hover:bg-accent transition-all h-0.5 w-11.25"></span>
+            <span className="block bg-white group-hover:bg-accent transition-all h-0.5 w-11.25"></span>
+            <span className="block bg-white group-hover:bg-accent transition-all h-0.5 w-6.25"></span>
           </button>
         </div>
       </header>
@@ -83,30 +86,35 @@ export function Navbar() {
       {/* Overlay do Menu em Fullscreen/Modal */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black/70 backdrop-blur-md z-50 flex justify-end"
+          className="fixed inset-0 bg-black/75 backdrop-blur-md z-50 flex justify-end transition-opacity duration-300"
           onClick={closeMenu}
         >
           <div
-            className="w-full max-w-md bg-linear-to-b from-[#2a1730] to-[#160c18] border-l border-white/10 h-full p-8 md:p-12 flex flex-col justify-between shadow-2xl relative"
+            className="w-full max-w-md bg-(--bg-dark) border-l border-(--border-accent) h-full p-8 md:p-12 flex flex-col justify-between relative overflow-hidden animate-in slide-in-from-right duration-300"
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Elementos de brilho ambiente no fundo do menu */}
+            <div className="absolute top-1/4 -right-20 w-64 h-64 bg-accent/15 rounded-full blur-3xl pointer-events-none"></div>
+            <div className="absolute bottom-10 -left-20 w-64 h-64 bg-accent-secondary/20 rounded-full blur-3xl pointer-events-none"></div>
+
             {/* Header do Menu */}
-            <div className="flex justify-between items-center pb-8 border-b border-white/10">
-              <span className="text-xl font-semibold">
+            <div className="flex justify-between items-center pb-6 border-b border-(--border-accent-subtle) z-10">
+              <span className="text-xl font-bold tracking-wider text-white flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-accent shadow-[0_0_8px_var(--color-accent)]"></span>
                 {t.nav.menu}
               </span>
               <button
                 onClick={closeMenu}
                 aria-label="Fechar Menu"
-                className="bg-white/10 hover:bg-white/20 text-white rounded-full p-2.5 cursor-pointer"
+                className="absolute top-10 right-10 md:top-12 md:right-20 bg-accent/10 hover:bg-accent/25 text-accent-light hover:text-white border border-(--border-accent-subtle) rounded-full w-10 h-10 flex items-center justify-center cursor-pointer transition-all hover:scale-105 shadow-[0_0_12px_var(--glow-accent-medium)]"
               >
-                <X size={24} />
+                <X size={20} />
               </button>
             </div>
 
             {/* Links de Navegação */}
-            <nav className="my-auto py-8">
-              <ul className="flex flex-col gap-6 list-none p-0 m-0">
+            <nav className="my-auto py-6 z-10">
+              <ul className="flex flex-col gap-3 list-none p-0 m-0">
                 {navLinks.map((link) => {
                   const Icon = link.icon;
                   const isActive = location.pathname === link.path;
@@ -115,19 +123,34 @@ export function Navbar() {
                       <Link
                         to={link.path}
                         onClick={closeMenu}
-                        className={`flex items-center gap-4 text-2xl font-light tracking-wide p-2 rounded-xl no-underline ${
+                        className={`flex items-center justify-between p-3.5 rounded-2xl no-underline transition-all duration-300 group border ${
                           isActive
-                            ? "text-purple-400 font-normal translate-x-2 bg-white/5"
-                            : "text-gray-300"
+                            ? "bg-linear-to-r from-accent/20 to-accent/5 border-(--border-accent) text-white shadow-[0_0_20px_var(--glow-accent-subtle)] font-medium"
+                            : "text-(--text-muted) border-transparent hover:text-white hover:bg-(--bg-glass) hover:translate-x-1.5"
                         }`}
                       >
-                        <Icon
-                          size={26}
-                          className={
-                            isActive ? "text-purple-400" : "text-purple-300/70"
-                          }
+                        <div className="flex items-center gap-4">
+                          <div
+                            className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${
+                              isActive
+                                ? "bg-accent text-white shadow-[0_0_12px_var(--glow-accent-strong)]"
+                                : "bg-white/5 text-(--text-muted) group-hover:text-white group-hover:bg-accent/20"
+                            }`}
+                          >
+                            <Icon size={20} />
+                          </div>
+                          <span className="text-lg tracking-wide font-sans">
+                            {link.name}
+                          </span>
+                        </div>
+                        <ChevronRight
+                          size={18}
+                          className={`transition-all duration-300 ${
+                            isActive
+                              ? "text-accent-light translate-x-0 opacity-100"
+                              : "opacity-0 -translate-x-2 group-hover:opacity-60 group-hover:translate-x-0"
+                          }`}
                         />
-                        <span>{link.name}</span>
                       </Link>
                     </li>
                   );
@@ -136,8 +159,10 @@ export function Navbar() {
             </nav>
 
             {/* Rodapé do Menu */}
-            <div className="pt-6 border-t border-white/10 text-sm text-gray-400 flex flex-col gap-2">
-              <span>© {new Date().getFullYear()} Wesley Domingos</span>
+            <div className="pt-6 border-t border-(--border-accent-subtle) flex flex-col gap-4 z-10">
+              <div className="text-xs text-(--text-subtle) font-medium">
+                © {new Date().getFullYear()} Wesley Domingos
+              </div>
             </div>
           </div>
         </div>
