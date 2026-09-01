@@ -11,11 +11,14 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
+import { useViewMode } from "../contexts/ViewModeContext";
+import { ProfileSelector, ViewModeBadge } from "./ProfileSelector";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const { t, language, toggleLanguage } = useLanguage();
+  const { viewMode } = useViewMode();
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
@@ -27,6 +30,14 @@ export function Navbar() {
     { name: t.nav.projects, path: "/projects", icon: FolderGit2 },
     { name: t.nav.contact, path: "/contact", icon: Mail },
   ];
+
+  /* Links destacados por perfil */
+  const priorityPath =
+    viewMode === "recruiter"
+      ? "/contact"
+      : viewMode === "developer"
+      ? "/projects"
+      : null;
 
   const getHeaderTitle = () => {
     switch (location.pathname) {
@@ -59,10 +70,14 @@ export function Navbar() {
           <div className="w-[140%] h-[2.5px] bg-white rounded-full opacity-90" />
         </Link>
 
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-3">
+          {/* Badge do perfil ativo */}
+          <ViewModeBadge />
+
+          {/* Botão de idioma */}
           <button
             onClick={toggleLanguage}
-            className="flex items-center gap-2 text-white bg-(--bg-glass) hoverhover:bg-(--bg-glass-hover)er border-(--border-subtle) px-3 py-1.5 rounded-full transition-colors cursor-pointer"
+            className="flex items-center gap-2 text-white bg-(--bg-glass) hover:bg-(--bg-glass-hover) border border-(--border-subtle) px-3 py-1.5 rounded-full transition-colors cursor-pointer"
             aria-label="Toggle Language"
           >
             <Globe size={18} />
@@ -118,6 +133,7 @@ export function Navbar() {
                 {navLinks.map((link) => {
                   const Icon = link.icon;
                   const isActive = location.pathname === link.path;
+                  const isPriority = link.path === priorityPath;
                   return (
                     <li key={link.name}>
                       <Link
@@ -126,6 +142,8 @@ export function Navbar() {
                         className={`flex items-center justify-between p-3.5 rounded-2xl no-underline transition-all duration-300 group border ${
                           isActive
                             ? "bg-linear-to-r from-accent/20 to-accent/5 border-(--border-accent) text-white shadow-[0_0_20px_var(--glow-accent-subtle)] font-medium"
+                            : isPriority
+                            ? "border-white/15 text-white/80 hover:text-white hover:bg-(--bg-glass) hover:translate-x-1.5 bg-white/[0.03]"
                             : "text-(--text-muted) border-transparent hover:text-white hover:bg-(--bg-glass) hover:translate-x-1.5"
                         }`}
                       >
@@ -134,6 +152,8 @@ export function Navbar() {
                             className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${
                               isActive
                                 ? "bg-accent text-white shadow-[0_0_12px_var(--glow-accent-strong)]"
+                                : isPriority
+                                ? "bg-accent/15 text-accent-light group-hover:text-white group-hover:bg-accent/20"
                                 : "bg-white/5 text-(--text-muted) group-hover:text-white group-hover:bg-accent/20"
                             }`}
                           >
@@ -143,6 +163,16 @@ export function Navbar() {
                             {link.name}
                           </span>
                         </div>
+                        {isPriority && !isActive && (
+                          <span
+                            style={{
+                              color: "#d946ef",
+                              borderColor: "rgba(217,70,239,0.35)",
+                              background: "rgba(217,70,239,0.08)",
+                            }}
+                          >
+                                                      </span>
+                        )}
                         <ChevronRight
                           size={18}
                           className={`transition-all duration-300 ${
@@ -158,8 +188,13 @@ export function Navbar() {
               </ul>
             </nav>
 
+            {/* Seletor de Perfil */}
+            <div className="z-10 pt-5 border-t border-(--border-accent-subtle)">
+              <ProfileSelector onSelect={closeMenu} />
+            </div>
+
             {/* Rodapé do Menu */}
-            <div className="pt-6 border-t border-(--border-accent-subtle) flex flex-col gap-4 z-10">
+            <div className="pt-4 flex flex-col gap-2 z-10">
               <div className="text-xs text-(--text-subtle) font-medium">
                 © {new Date().getFullYear()} Wesley Domingos
               </div>
