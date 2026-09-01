@@ -25,8 +25,36 @@ export const pt = {
   },
   about: {
     title: "Sobre Mim",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum aut, quisquam nisi eaque rerum explicabo, nam exercitationem praesentium nemo dolor, fugit mollitia error nobis quae illo laudantium eligendi dicta esse."
+    description: "Sou estudante de Engenharia de Software apaixonado por criar experiências digitais modernas, fluidas e com alta qualidade de código. Tenho foco no desenvolvimento de soluções completas que aliam arquitetura sólida, interfaces intuitivas e inovação para resolver problemas reais com tecnologia.",
+    objectivesTitle: "Objetivos",
+    objectives: [
+      {
+        id: "1",
+        title: "Crescimento & Impacto",
+        description: "Integrar equipes inovadoras de tecnologia, contribuindo diretamente no desenvolvimento de produtos escaláveis e de alto impacto."
+      },
+      {
+        id: "2",
+        title: "Excelência Técnica",
+        description: "Aprimorar continuamente conhecimentos em arquitetura de software limpa, boas práticas, testes e novas tecnologias."
+      },
+      {
+        id: "3",
+        title: "Soluções Intuitivas",
+        description: "Transformar ideias complexas em interfaces elegantes, acessíveis e focadas na melhor experiência do usuário."
+      }
+    ],
+    interestsTitle: "Áreas de Interesse",
+    interests: [
+      "Desenvolvimento Full-Stack",
+      "Engenharia de Software",
+      "UI/UX Design & Micro-interações",
+      "Inteligência Artificial & Automação",
+      "Arquitetura de Sistemas",
+      "Performance & Otimização Web"
+    ]
   },
+
   contact: {
     title: "Contato",
     heading: "diga olá",
@@ -48,7 +76,7 @@ export const pt = {
   },
   experience: {
     title: "Experiência",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    description: "Minha trajetória prática e acadêmica é focada no desenvolvimento contínuo de competências em Engenharia de Software. Busco aplicar conhecimentos em projetos desafiadores, desde o planejamento arquitetural e modelagem de sistemas até a entrega de software funcional, acessível e performático.",
     items: [
       {
         id: "1",

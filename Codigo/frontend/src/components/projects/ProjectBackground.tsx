@@ -6,7 +6,7 @@ export function ProjectBackground() {
     >
       {/* Glow difuso atmosférico superior-direito */}
       <div
-        className="absolute -top-10 right-[5%] w-[650px] h-[550px]"
+        className="absolute -top-10 right-[5%] w-162.5 h-137.5"
         style={{
           background:
             "radial-gradient(ellipse 65% 55% at 65% 35%, rgba(168, 36, 179, 0.22) 0%, rgba(106, 0, 200, 0.12) 45%, transparent 75%)",

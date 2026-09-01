@@ -62,7 +62,7 @@ export function Projects() {
               >
                 {/* ─── Indicador Circular na Linha do Tempo ─── */}
                 <div
-                  className={`absolute -left-[39px] sm:-left-[51px] md:-left-[59px] transition-all duration-300 flex items-center justify-center ${
+                  className={`absolute -left-9.75 sm:-left-12.75 md:-left-14.75 transition-all duration-300 flex items-center justify-center ${
                     isOpen
                       ? "top-1 w-7 h-7 rounded-full bg-[#8c1ea8] border-[3px] border-[#e4a5ff] shadow-[0_0_18px_rgba(176,38,255,0.9)] z-20"
                       : "top-5 w-5 h-5 rounded-full bg-white/90 shadow-[0_0_10px_rgba(255,255,255,0.4)] z-20"

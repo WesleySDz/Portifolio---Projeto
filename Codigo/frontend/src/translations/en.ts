@@ -26,12 +26,43 @@ export const en = {
   about: {
     title: "About Me",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum aut, quisquam nisi eaque rerum explicabo, nam exercitationem praesentium nemo dolor, fugit mollitia error nobis quae illo laudantium eligendi dicta esse.",
+      "I am a Software Engineering student passionate about crafting modern, fluid digital experiences with high-quality code. My focus is on building end-to-end solutions that combine solid architecture, intuitive interfaces, and innovation to solve real-world problems through technology.",
+    objectivesTitle: "Objectives",
+    objectives: [
+      {
+        id: "1",
+        title: "Growth & Impact",
+        description:
+          "Join innovative tech teams and actively contribute to the development of scalable, high-impact products.",
+      },
+      {
+        id: "2",
+        title: "Technical Excellence",
+        description:
+          "Continuously enhance knowledge in clean software architecture, best practices, testing, and modern technologies.",
+      },
+      {
+        id: "3",
+        title: "Intuitive Solutions",
+        description:
+          "Transform complex ideas into elegant, accessible interfaces focused on delivering the best user experience.",
+      },
+    ],
+    interestsTitle: "Areas of Interest",
+    interests: [
+      "Full-Stack Development",
+      "Software Engineering",
+      "UI/UX Design & Micro-interactions",
+      "Artificial Intelligence & Automation",
+      "System Architecture",
+      "Web Performance & Optimization",
+    ],
   },
+
   experience: {
     title: "Experience",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "My practical and academic journey is focused on continuously expanding my skills in Software Engineering. I strive to apply best practices across challenging projects, ranging from architectural planning and system design to the delivery of functional, accessible, and high-performance software.",
     items: [
       {
         id: "1",
