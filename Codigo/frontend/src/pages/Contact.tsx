@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useLanguage } from "../contexts/LanguageContext";
+import { useViewMode } from "../contexts/ViewModeContext";
 import { ContactModal } from "../components/ContactModal";
 import { SOCIAL_LINKS } from "../config/contact";
 
@@ -75,7 +76,11 @@ const MailEnvelopeIcon = () => (
 
 export function Contact() {
   const { t } = useLanguage();
+  const { viewMode } = useViewMode();
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  /* Dados adaptativos por perfil */
+  const profileData = t.contact[viewMode] as { heading: string; description: string };
 
   return (
     <div className="relative flex-1 flex flex-col justify-between overflow-hidden">
@@ -188,21 +193,21 @@ export function Contact() {
             animation: "contactFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both",
           }}
         >
-          {/* Título 'say hello' / 'diga olá' */}
-          <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[5.75rem] font-serif font-normal mb-6 sm:mb-8 leading-[1.05] tracking-tight text-white drop-shadow-[0_4px_25px_rgba(0,0,0,0.7)]">
-            {t.contact.heading}
+          {/* Título adaptativo por perfil */}
+          <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[5.75rem] font-serif font-normal mb-6 sm:mb-8 leading-[1.05] tracking-tight text-white drop-shadow-[0_4px_25px_rgba(0,0,0,0.7)] transition-all duration-500">
+            {profileData.heading}
           </h1>
 
-          {/* Descrição em parágrafo */}
+          {/* Descrição adaptativa */}
           <p
-            className="text-base sm:text-lg md:text-[1.2rem] text-white/90 max-w-3xl leading-relaxed md:leading-8 font-serif font-normal tracking-wide"
+            className="text-base sm:text-lg md:text-[1.2rem] text-white/90 max-w-3xl leading-relaxed md:leading-8 font-serif font-normal tracking-wide transition-all duration-500"
             style={{
               animation:
                 "contactFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both",
               animationDelay: "0.15s",
             }}
           >
-            {t.contact.description}
+            {profileData.description}
           </p>
         </div>
 

@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { useLanguage } from "../contexts/LanguageContext";
+import { useViewMode } from "../contexts/ViewModeContext";
 import { ChevronDown, Calendar } from "lucide-react";
 import { ExperienceBackground } from "../components/experience/ExperienceBackground";
 
 export function Experience() {
   const { t } = useLanguage();
+  const { viewMode } = useViewMode();
+
   // Começa com o primeiro item aberto por padrão
   const [openItems, setOpenItems] = useState<Record<string, boolean>>({
     "1": true,
@@ -16,6 +19,9 @@ export function Experience() {
       [id]: !prev[id],
     }));
   };
+
+  /* Dados adaptativos por perfil */
+  const profileData = t.experience[viewMode];
 
   return (
     <div className="relative flex-1 flex flex-col justify-between overflow-hidden">
@@ -31,8 +37,8 @@ export function Experience() {
             animation: "expFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both",
           }}
         >
-          <p className="text-base sm:text-lg md:text-[1.2rem] text-white/95 leading-relaxed md:leading-8 font-serif font-normal tracking-wide max-w-4xl drop-shadow-[0_2px_15px_rgba(0,0,0,0.6)]">
-            {t.experience.description}
+          <p className="text-base sm:text-lg md:text-[1.2rem] text-white/95 leading-relaxed md:leading-8 font-serif font-normal tracking-wide max-w-4xl drop-shadow-[0_2px_15px_rgba(0,0,0,0.6)] transition-all duration-500">
+            {profileData.description}
           </p>
         </section>
 
@@ -44,7 +50,7 @@ export function Experience() {
             animationDelay: "0.15s",
           }}
         >
-          {t.experience.items.map((item) => {
+          {profileData.items.map((item) => {
             const isOpen = !!openItems[item.id];
             return (
               <div

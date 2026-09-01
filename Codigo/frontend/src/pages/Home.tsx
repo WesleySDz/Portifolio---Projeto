@@ -1,5 +1,8 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
+import { useViewMode } from "../contexts/ViewModeContext";
 import { TechCarousel } from "../components/TechCarousel";
 
 /* Partículas decorativas geradas uma vez */
@@ -15,6 +18,7 @@ const PARTICLES = Array.from({ length: 28 }, (_, i) => ({
 
 export function Home() {
   const { t } = useLanguage();
+  const { viewMode } = useViewMode();
 
   /* Parallax sutil nos orbs ao mover o mouse */
   useEffect(() => {
@@ -33,6 +37,10 @@ export function Home() {
     window.addEventListener("mousemove", handleMouse);
     return () => window.removeEventListener("mousemove", handleMouse);
   }, []);
+
+  const subtitle = t.home.subtitle[viewMode];
+  const ctaLabel = t.home.cta[viewMode];
+  const ctaPath = t.home.ctaPath[viewMode];
 
   return (
     <>
@@ -108,9 +116,9 @@ export function Home() {
           Wesley Domingos
         </h1>
 
-        {/* Cargo — mais discreto */}
+        {/* Cargo — adaptativo por perfil */}
         <h2
-          className="m-0 mt-3 font-light leading-tight font-sans"
+          className="m-0 mt-3 font-light leading-tight font-sans transition-all duration-500"
           style={{
             fontSize: "clamp(1.2rem, 3vw, 2rem)",
             color: "var(--text-subtle)",
@@ -119,7 +127,7 @@ export function Home() {
             animationDelay: "0.4s",
           }}
         >
-          {t.home.role}
+          {subtitle}
         </h2>
 
         {/* Linha decorativa */}
@@ -137,6 +145,32 @@ export function Home() {
                 "linear-gradient(to right, var(--color-accent), transparent)",
             }}
           />
+        </div>
+
+        {/* CTA — adaptativo por perfil */}
+        <div
+          style={{
+            animation: "heroFadeUp 0.7s ease both",
+            animationDelay: "0.7s",
+          }}
+          className="mt-8"
+        >
+          <Link
+            to={ctaPath}
+            className="inline-flex items-center gap-2.5 group no-underline"
+          >
+            <span
+              className="text-sm font-sans font-medium tracking-wide transition-colors duration-300"
+              style={{ color: "var(--color-accent-light)" }}
+            >
+              {ctaLabel}
+            </span>
+            <ArrowRight
+              size={16}
+              className="group-hover:translate-x-1 transition-transform duration-300"
+              style={{ color: "var(--color-accent-light)" }}
+            />
+          </Link>
         </div>
       </main>
 

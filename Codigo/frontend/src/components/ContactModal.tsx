@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, type FormEvent } from "react";
 import { useLanguage } from "../contexts/LanguageContext";
-import { X, Send, ChevronDown, Check, CheckCircle2 } from "lucide-react";
+import { useViewMode } from "../contexts/ViewModeContext";
+import { X, Send, ChevronDown, Check, CheckCircle2, Star } from "lucide-react";
 import { RECIPIENT_EMAIL, sendContactEmail } from "../config/contact";
 
 interface ContactModalProps {
@@ -9,7 +10,8 @@ interface ContactModalProps {
 }
 
 export function ContactModal({ isOpen, onClose }: ContactModalProps) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const { viewMode } = useViewMode();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -18,6 +20,15 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const selectRef = useRef<HTMLDivElement>(null);
+
+  /* Para recrutador, pré-selecionar Tempo Integral */
+  useEffect(() => {
+    if (viewMode === "recruiter") {
+      setSelectedTopic("fulltime");
+    } else {
+      setSelectedTopic("freelance");
+    }
+  }, [viewMode]);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -41,10 +52,30 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
   if (!isOpen) return null;
 
+  /* Opções de assunto — para Recrutador, destacar as duas primeiras */
+  const isRecruiter = viewMode === "recruiter";
+
   const topicOptions = [
-    { id: "freelance", label: t.contact.topicOptions.freelance },
-    { id: "fulltime", label: t.contact.topicOptions.fulltime },
-    { id: "other", label: t.contact.topicOptions.other },
+    {
+      id: "fulltime",
+      label: t.contact.topicOptions.fulltime,
+      priority: isRecruiter,
+    },
+    {
+      id: "freelance",
+      label: t.contact.topicOptions.freelance,
+      priority: isRecruiter,
+    },
+    {
+      id: "project",
+      label: t.contact.topicOptions.project,
+      priority: false,
+    },
+    {
+      id: "other",
+      label: t.contact.topicOptions.other,
+      priority: false,
+    },
   ];
 
   const currentTopicLabel =
@@ -55,13 +86,16 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
     e.preventDefault();
 
     if (!name.trim() || !email.trim() || !message.trim()) {
-      setErrorMessage("Por favor, preencha todos os campos antes de enviar.");
+      setErrorMessage(
+        language === "pt"
+          ? "Por favor, preencha todos os campos antes de enviar."
+          : "Please fill in all fields before submitting."
+      );
       return;
     }
 
     setErrorMessage("");
 
-    // Disparar envio via módulo de contato
     sendContactEmail({
       name,
       email,
@@ -69,7 +103,6 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
       message,
     });
 
-    // Exibir tela de sucesso no modal
     setIsSubmitted(true);
   };
 
@@ -112,11 +145,12 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
               </div>
 
               <h3 className="text-3xl font-serif text-white mb-3">
-                Mensagem Preparada!
+                {language === "pt" ? "Mensagem Preparada!" : "Message Ready!"}
               </h3>
               <p className="text-(--text-secondary) max-w-md text-base leading-relaxed mb-2 font-sans">
-                Seu aplicativo de e-mail foi aberto com os dados preenchidos
-                para enviar direto para:
+                {language === "pt"
+                  ? "Seu aplicativo de e-mail foi aberto com os dados preenchidos para enviar direto para:"
+                  : "Your email client was opened with the filled-in details to send directly to:"}
               </p>
               <span className="text-accent-light font-mono text-sm px-4 py-1.5 rounded-full bg-accent/10 border border-(--border-accent-subtle) mb-8 inline-block">
                 {RECIPIENT_EMAIL}
@@ -127,7 +161,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 onClick={handleClose}
                 className="btn-accent px-8 py-3.5 text-base"
               >
-                Concluir e Fechar
+                {language === "pt" ? "Concluir e Fechar" : "Done & Close"}
               </button>
             </div>
           ) : (
@@ -198,9 +232,20 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                           : "border-(--border-subtle) hover:border-(--border-accent-subtle)"
                       }`}
                     >
-                      <span className="text-white font-normal">
-                        {currentTopicLabel}
-                      </span>
+                      <div className="flex items-center gap-2">
+                        {/* Star badge para opções prioritárias (modo recruiter) */}
+                        {isRecruiter &&
+                          topicOptions.find((o) => o.id === selectedTopic)
+                            ?.priority && (
+                            <Star
+                              size={14}
+                              className="fill-[#d946ef] text-[#d946ef]"
+                            />
+                          )}
+                        <span className="text-white font-normal">
+                          {currentTopicLabel}
+                        </span>
+                      </div>
                       <ChevronDown
                         size={18}
                         className={`text-(--text-muted) transition-transform duration-200 ${isSelectOpen ? "rotate-180 text-accent-light" : ""}`}
@@ -210,27 +255,54 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     {/* Dropdown Menu Flutuante */}
                     {isSelectOpen && (
                       <div className="absolute top-full left-0 right-0 z-30 mt-2 bg-(--bg-dark) border border-(--border-accent) rounded-xl p-1.5 shadow-(--shadow-modal) backdrop-blur-xl animate-in fade-in zoom-in-95 duration-150">
-                        {topicOptions.map((option) => {
+                        {/* Separator label para recrutador */}
+                        {isRecruiter && (
+                          <div className="px-3 pt-1 pb-2">
+                            <span className="text-[10px] uppercase tracking-widest text-[#d946ef] font-medium">
+                              {language === "pt"
+                                ? "⭐ Oportunidades profissionais"
+                                : "⭐ Professional opportunities"}
+                            </span>
+                          </div>
+                        )}
+
+                        {topicOptions.map((option, idx) => {
                           const isSelected = option.id === selectedTopic;
+                          const showDivider =
+                            isRecruiter && idx === 2;
                           return (
-                            <button
-                              key={option.id}
-                              type="button"
-                              onClick={() => {
-                                setSelectedTopic(option.id);
-                                setIsSelectOpen(false);
-                              }}
-                              className={`w-full flex items-center justify-between px-4 py-3 rounded-lg text-sm text-left transition-all cursor-pointer ${
-                                isSelected
-                                  ? "bg-accent text-white font-medium shadow-(--shadow-neon-sm)"
-                                  : "text-(--text-secondary) hover:bg-(--bg-glass-hover) hover:text-white"
-                              }`}
-                            >
-                              <span>{option.label}</span>
-                              {isSelected && (
-                                <Check size={16} className="text-white" />
+                            <div key={option.id}>
+                              {showDivider && (
+                                <div className="h-px bg-white/10 mx-2 my-1.5" />
                               )}
-                            </button>
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  setSelectedTopic(option.id);
+                                  setIsSelectOpen(false);
+                                }}
+                                className={`w-full flex items-center justify-between px-4 py-3 rounded-lg text-sm text-left transition-all cursor-pointer ${
+                                  isSelected
+                                    ? "bg-accent text-white font-medium shadow-(--shadow-neon-sm)"
+                                    : option.priority
+                                    ? "text-white hover:bg-(--bg-glass-hover)"
+                                    : "text-(--text-secondary) hover:bg-(--bg-glass-hover) hover:text-white"
+                                }`}
+                              >
+                                <div className="flex items-center gap-2">
+                                  {option.priority && !isSelected && (
+                                    <Star
+                                      size={13}
+                                      className="fill-[#d946ef] text-[#d946ef] flex-shrink-0"
+                                    />
+                                  )}
+                                  <span>{option.label}</span>
+                                </div>
+                                {isSelected && (
+                                  <Check size={16} className="text-white" />
+                                )}
+                              </button>
+                            </div>
                           );
                         })}
                       </div>
@@ -248,7 +320,11 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     className="input-theme resize-none"
-                    placeholder="Escreva sua mensagem aqui..."
+                    placeholder={
+                      language === "pt"
+                        ? "Escreva sua mensagem aqui..."
+                        : "Write your message here..."
+                    }
                   />
                 </div>
 

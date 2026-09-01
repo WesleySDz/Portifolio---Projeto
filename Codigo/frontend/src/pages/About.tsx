@@ -1,4 +1,5 @@
 import { useLanguage } from "../contexts/LanguageContext";
+import { useViewMode } from "../contexts/ViewModeContext";
 import {
   Target,
   Sparkles,
@@ -6,17 +7,76 @@ import {
   Cpu,
   LayoutTemplate,
   Terminal,
+  Briefcase,
+  Users,
+  Lightbulb,
+  Code2,
+  Server,
+  BookOpen,
 } from "lucide-react";
 
-/* ─── Ícones dos Objetivos ─── */
-const objectiveIcons = [
-  <TrendingUp size={24} className="text-[#e4a5ff]" />,
-  <Cpu size={24} className="text-[#e4a5ff]" />,
+/* ─── Ícones dos Cards por Perfil ─── */
+const visitorIcons = [
   <LayoutTemplate size={24} className="text-[#e4a5ff]" />,
+  <Sparkles size={24} className="text-[#e4a5ff]" />,
+  <TrendingUp size={24} className="text-[#e4a5ff]" />,
+];
+
+const recruiterIcons = [
+  <Users size={24} className="text-[#e4a5ff]" />,
+  <Briefcase size={24} className="text-[#e4a5ff]" />,
+  <Lightbulb size={24} className="text-[#e4a5ff]" />,
+];
+
+const developerIcons = [
+  <Cpu size={24} className="text-[#e4a5ff]" />,
+  <Server size={24} className="text-[#e4a5ff]" />,
+  <BookOpen size={24} className="text-[#e4a5ff]" />,
 ];
 
 export function About() {
   const { t } = useLanguage();
+  const { viewMode } = useViewMode();
+
+  /* Dados adaptativos por perfil */
+  const profileData = t.about[viewMode];
+  const icons =
+    viewMode === "visitor"
+      ? visitorIcons
+      : viewMode === "recruiter"
+      ? recruiterIcons
+      : developerIcons;
+
+  /* Label da seção de cards */
+  const cardsTitle =
+    viewMode === "visitor"
+      ? (profileData as typeof t.about.visitor).objectivesTitle
+      : (profileData as typeof t.about.recruiter).highlightsTitle;
+
+  /* Items dos cards */
+  const cards =
+    viewMode === "visitor"
+      ? (profileData as typeof t.about.visitor).objectives
+      : (profileData as typeof t.about.recruiter).highlights;
+
+  /* Label e items das tags/interesse */
+  const tagsTitle = profileData.interestsTitle;
+  const tags = profileData.interests;
+
+  /* Ícone do overview muda por perfil */
+  const OverviewIcon =
+    viewMode === "visitor"
+      ? Terminal
+      : viewMode === "recruiter"
+      ? Briefcase
+      : Code2;
+
+  const overviewLabel =
+    viewMode === "visitor"
+      ? "Overview"
+      : viewMode === "recruiter"
+      ? "Perfil Profissional"
+      : "Tech Profile";
 
   return (
     <div className="relative flex-1 flex flex-col justify-between overflow-hidden">
@@ -91,21 +151,21 @@ export function About() {
           }}
         >
           <div className="flex items-center gap-3 mb-3 text-[#d946ef]">
-            <Terminal
+            <OverviewIcon
               size={20}
               className="text-[#d946ef] drop-shadow-[0_0_8px_rgba(217,70,239,0.6)]"
             />
             <span className="text-xs sm:text-sm uppercase tracking-widest font-sans font-medium text-white/60">
-              Overview
+              {overviewLabel}
             </span>
           </div>
 
-          <p className="text-base sm:text-lg md:text-[1.2rem] text-white/95 leading-relaxed md:leading-8 font-serif font-normal tracking-wide max-w-4xl drop-shadow-[0_2px_15px_rgba(0,0,0,0.6)]">
-            {t.about.description}
+          <p className="text-base sm:text-lg md:text-[1.2rem] text-white/95 leading-relaxed md:leading-8 font-serif font-normal tracking-wide max-w-4xl drop-shadow-[0_2px_15px_rgba(0,0,0,0.6)] transition-all duration-500">
+            {profileData.description}
           </p>
         </section>
 
-        {/* ─── 2. Objetivos Profissionais ─── */}
+        {/* ─── 2. Cards (Objetivos / Destaques) ─── */}
         <section
           className="mb-8 md:mb-10"
           style={{
@@ -119,30 +179,30 @@ export function About() {
               className="text-[#d946ef] drop-shadow-[0_0_8px_rgba(217,70,239,0.6)]"
             />
             <h2 className="text-lg sm:text-xl md:text-2xl font-serif text-white tracking-wide">
-              {t.about.objectivesTitle}
+              {cardsTitle}
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-            {t.about.objectives.map((obj, idx) => (
+            {cards.map((card, idx) => (
               <div
-                key={obj.id}
+                key={card.id}
                 className="group relative flex flex-col justify-between p-5 sm:p-6 rounded-2xl md:rounded-3xl bg-[#160a1a]/85 hover:bg-[#200e28]/90 border border-[#9315dc]/40 hover:border-[#d946ef] backdrop-blur-xl shadow-[0_8px_25px_rgba(0,0,0,0.55)] transition-all duration-300 hover:-translate-y-1"
               >
                 <div>
                   {/* Ícone com Glow */}
                   <div className="w-11 h-11 rounded-2xl bg-[#2a0e36] border border-[#a824b3]/50 group-hover:border-[#d946ef] flex items-center justify-center mb-4 transition-colors shadow-[0_0_15px_rgba(176,38,255,0.2)]">
-                    {objectiveIcons[idx % objectiveIcons.length]}
+                    {icons[idx % icons.length]}
                   </div>
 
-                  {/* Título do Objetivo */}
+                  {/* Título */}
                   <h3 className="text-lg sm:text-xl font-serif font-normal text-white group-hover:text-[#e4a5ff] transition-colors mb-2.5">
-                    {obj.title}
+                    {card.title}
                   </h3>
 
-                  {/* Descrição do Objetivo */}
+                  {/* Descrição */}
                   <p className="text-white/80 text-xs sm:text-sm leading-relaxed font-sans font-light">
-                    {obj.description}
+                    {card.description}
                   </p>
                 </div>
 
@@ -153,7 +213,7 @@ export function About() {
           </div>
         </section>
 
-        {/* ─── 3. Áreas de Interesse ─── */}
+        {/* ─── 3. Tags de Interesses / Stack ─── */}
         <section
           style={{
             animation: "aboutFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both",
@@ -166,19 +226,19 @@ export function About() {
               className="text-[#d946ef] drop-shadow-[0_0_8px_rgba(217,70,239,0.6)]"
             />
             <h2 className="text-lg sm:text-xl md:text-2xl font-serif text-white tracking-wide">
-              {t.about.interestsTitle}
+              {tagsTitle}
             </h2>
           </div>
 
           <div className="flex flex-wrap gap-2.5 sm:gap-3">
-            {t.about.interests.map((interest, idx) => (
+            {tags.map((tag, idx) => (
               <div
                 key={idx}
                 className="group flex items-center gap-2.5 px-4 sm:px-4.5 py-2 rounded-full bg-[#180a1d]/80 hover:bg-[#280e32]/95 border border-[#9315dc]/40 hover:border-[#d946ef] backdrop-blur-md transition-all duration-300 hover:scale-105 shadow-[0_4px_15px_rgba(0,0,0,0.4)] cursor-default"
               >
                 <span className="w-2.5 h-2.5 rounded-full bg-[#b026ff] group-hover:bg-[#d946ef] group-hover:shadow-[0_0_10px_#d946ef] transition-all" />
                 <span className="text-xs sm:text-sm font-sans font-normal text-white/90 group-hover:text-white transition-colors">
-                  {interest}
+                  {tag}
                 </span>
               </div>
             ))}

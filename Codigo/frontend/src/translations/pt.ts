@@ -274,6 +274,50 @@ export const pt = {
           link: "https://github.com/nicolasksoares/Trabalho-Pr-tico",
           image: "/projects-images/voo-seguro.png",
         },
+        {
+          id: "3",
+          title: "OpenFlights",
+          date: "Nov/2025",
+          description:
+            "API REST desenvolvida com Spring Boot para o gerenciamento de dados de aeroportos. O sistema realiza a carga inicial de dados a partir de um arquivo CSV, localizado na pasta resources. O projeto oferece um CRUD completo, com normalização, tratamento e busca inteligente de dados.",
+          tags: ["Java"],
+          link: "https://github.com/WesleySDz/OpenFlights-Spring",
+          image: "/projects-images/openflights.jpg",
+        },
+        {
+          id: "4",
+          title: "Cras Digital",
+          date: "Nov/2025",
+          description:
+            "O sistema foi projetado para substituir os métodos manuais—anteriormente realizados com formulários físicos e registros em papel—por fluxos de trabalho digitais seguros, padronizados e acessíveis.",
+          tags: [
+            "Java",
+            "Spring Boot",
+            "HTML",
+            "JavaScript",
+            "Bootstrap",
+            "MySQL",
+          ],
+          link: "https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2025-2-ti1-2010100-cras-digital",
+          image: "/projects-images/cras-digital.jpg",
+        },
+        {
+          id: "5",
+          title: "FisioFlow",
+          date: "Jun/2026",
+          description:
+            "O projeto FisioFlow tem como objetivo desenvolver um sistema de gestão clínica baseado em web, adaptado às necessidades de um fisioterapeuta neurofuncional que atua em um ambiente híbrido—prestando cuidados tanto em casa dos pacientes quanto em uma clínica.",
+          tags: [
+            "Java",
+            "Tailwind CSS",
+            "TypeScript",
+            "React",
+            "Spring Boot",
+            "PostgreSQL",
+          ],
+          link: "https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2026-1-ti3-9545100-powerfiso",
+          image: "/projects-images/fisioflow.png",
+        },
       ],
     },
 
@@ -301,6 +345,50 @@ export const pt = {
           link: "https://github.com/nicolasksoares/Trabalho-Pr-tico",
           image: "/projects-images/voo-seguro.png",
         },
+        {
+          id: "3",
+          title: "OpenFlights",
+          date: "Nov/2025",
+          description:
+            "API REST desenvolvida com Spring Boot para o gerenciamento de dados de aeroportos. O sistema realiza a carga inicial de dados a partir de um arquivo CSV, localizado na pasta resources. O projeto oferece um CRUD completo, com normalização, tratamento e busca inteligente de dados.",
+          tags: ["Java"],
+          link: "https://github.com/WesleySDz/OpenFlights-Spring",
+          image: "/projects-images/openflights.jpg",
+        },
+        {
+          id: "4",
+          title: "Cras Digital",
+          date: "Nov/2025",
+          description:
+            "O sistema foi projetado para substituir os métodos manuais—anteriormente realizados com formulários físicos e registros em papel—por fluxos de trabalho digitais seguros, padronizados e acessíveis.",
+          tags: [
+            "Java",
+            "Spring Boot",
+            "HTML",
+            "JavaScript",
+            "Bootstrap",
+            "MySQL",
+          ],
+          link: "https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2025-2-ti1-2010100-cras-digital",
+          image: "/projects-images/cras-digital.jpg",
+        },
+        {
+          id: "5",
+          title: "FisioFlow",
+          date: "Jun/2026",
+          description:
+            "O projeto FisioFlow tem como objetivo desenvolver um sistema de gestão clínica baseado em web, adaptado às necessidades de um fisioterapeuta neurofuncional que atua em um ambiente híbrido—prestando cuidados tanto em casa dos pacientes quanto em uma clínica.",
+          tags: [
+            "Java",
+            "Tailwind CSS",
+            "TypeScript",
+            "React",
+            "Spring Boot",
+            "PostgreSQL",
+          ],
+          link: "https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2026-1-ti3-9545100-powerfiso",
+          image: "/projects-images/fisioflow.png",
+        },
       ],
     },
 
@@ -314,15 +402,25 @@ export const pt = {
           date: "Dez/2024",
           description:
             "Plataforma web de gestão de tempo baseada no Princípio de Pareto. Frontend com HTML5, CSS3 e JavaScript vanilla, estilização com Bootstrap. Implementação de lógica de priorização de tarefas, persistência local via LocalStorage e interface responsiva. Projeto desenvolvido em equipe com controle de versão via Git.",
-          tags: ["HTML", "CSS", "JavaScript", "Bootstrap", "LocalStorage", "Git"],
+          tags: [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Bootstrap",
+            "LocalStorage",
+            "Git",
+          ],
           link: "https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2024-2-ti1-2010100-tempus-dominus",
           image: "/projects-images/tempus-dominus.jpg",
           techDetails: {
             stack: "HTML5 · CSS3 · JavaScript (ES6+) · Bootstrap 5",
-            frontend: "Interface responsiva com componentes Bootstrap. Lógica de priorização de tarefas com base no Princípio de Pareto implementada em JS vanilla.",
+            frontend:
+              "Interface responsiva com componentes Bootstrap. Lógica de priorização de tarefas com base no Princípio de Pareto implementada em JS vanilla.",
             backend: "Sem backend — aplicação client-side.",
-            database: "Persistência via LocalStorage para manter dados de sessão do usuário.",
-            architecture: "Aplicação SPA simples com organização modular de arquivos JS. Separação de responsabilidades entre lógica de negócio e renderização.",
+            database:
+              "Persistência via LocalStorage para manter dados de sessão do usuário.",
+            architecture:
+              "Aplicação SPA simples com organização modular de arquivos JS. Separação de responsabilidades entre lógica de negócio e renderização.",
             highlights: [
               "Implementação do algoritmo de priorização baseado no Princípio de Pareto (80/20)",
               "Persistência de estado via LocalStorage com serialização/deserialização de dados",
@@ -342,16 +440,119 @@ export const pt = {
           image: "/projects-images/voo-seguro.png",
           techDetails: {
             stack: "C (C99) · GCC · Makefile",
-            frontend: "Interface via terminal (CLI) com menus interativos e feedback de operações.",
-            backend: "Lógica de negócio em C com structs personalizadas, ponteiros e alocação dinâmica de memória (malloc/free).",
-            database: "Persistência em arquivo binário (.dat) com operações de leitura/escrita para manutenção de dados entre sessões.",
-            architecture: "Arquitetura modular em C com separação de responsabilidades: módulo de I/O, módulo de entidades, módulo de persistência e módulo de validação.",
+            frontend:
+              "Interface via terminal (CLI) com menus interativos e feedback de operações.",
+            backend:
+              "Lógica de negócio em C com structs personalizadas, ponteiros e alocação dinâmica de memória (malloc/free).",
+            database:
+              "Persistência em arquivo binário (.dat) com operações de leitura/escrita para manutenção de dados entre sessões.",
+            architecture:
+              "Arquitetura modular em C com separação de responsabilidades: módulo de I/O, módulo de entidades, módulo de persistência e módulo de validação.",
             highlights: [
               "Modelagem de entidades com structs (Voo, Passageiro, Funcionário, Reserva)",
               "CRUD completo: criação, leitura, atualização e exclusão de registros",
               "Alocação e liberação dinâmica de memória com controle de vazamentos",
               "Persistência em arquivo binário com serialização de structs",
               "Validação de campos: formato de datas, CPF, numeração de voos",
+            ],
+          },
+        },
+        {
+          id: "3",
+          title: "OpenFlights",
+          date: "Nov/2025",
+          description:
+            "API REST desenvolvida com Spring Boot para o gerenciamento de dados de aeroportos. O sistema realiza a carga inicial de dados a partir de um arquivo CSV, localizado na pasta resources. O projeto oferece um CRUD completo, com normalização, tratamento e busca inteligente de dados.",
+          tags: ["Java", "Spring Boot", "REST API", "JPA", "PostgreSQL"],
+          link: "https://github.com/WesleySDz/OpenFlights-Spring",
+          image: "/projects-images/openflights.jpg",
+          techDetails: {
+            stack: "Java 17 · Spring Boot 3 · Spring Data JPA · PostgreSQL",
+            frontend: "Sem frontend — API REST consumível por clientes HTTP.",
+            backend:
+              "Spring Boot com controllers REST, serviços de negócio e repositórios JPA para persistência.",
+            database:
+              "PostgreSQL com normalização de tabelas, relacionamentos e constraints. Carga inicial via CSV na pasta resources.",
+            architecture:
+              "Arquitetura em camadas: Controller → Service → Repository. Uso de DTOs para transferência de dados e validação de entrada.",
+            highlights: [
+              "CRUD completo para entidades Aeroporto, Voo e Companhia Aérea",
+              "Carga inicial de dados a partir de arquivo CSV",
+              "Busca inteligente com filtros e paginação",
+              "Validação de dados com Bean Validation (javax.validation)",
+              "Documentação da API via Swagger/OpenAPI",
+            ],
+          },
+        },
+        {
+          id: "4",
+          title: "Cras Digital",
+          date: "Nov/2025",
+          description:
+            "O sistema foi projetado para substituir os métodos manuais—anteriormente realizados com formulários físicos e registros em papel—por fluxos de trabalho digitais seguros, padronizados e acessíveis.",
+          tags: [
+            "Java",
+            "Spring Boot",
+            "HTML",
+            "JavaScript",
+            "Bootstrap",
+            "MySQL",
+          ],
+          link: "https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2025-2-ti1-2010100-cras-digital",
+          image: "/projects-images/cras-digital.jpg",
+          techDetails: {
+            stack:
+              "Java 17 · Spring Boot 3 · HTML5 · CSS3 · JavaScript · Bootstrap 5 · MySQL",
+            frontend:
+              "Interface web responsiva com HTML5, CSS3, JavaScript e Bootstrap 5. Formulários dinâmicos e validação de entrada no cliente.",
+            backend:
+              "Spring Boot com controllers REST, serviços de negócio e repositórios JPA para persistência. Autenticação e autorização com Spring Security.",
+            database:
+              "MySQL com normalização de tabelas, relacionamentos e constraints. Scripts de criação e carga inicial incluídos no projeto.",
+            architecture:
+              "Arquitetura em camadas: Controller → Service → Repository. Uso de DTOs para transferência de dados e validação de entrada.",
+            highlights: [
+              "CRUD completo para entidades Usuário, Beneficiário e Atendimento",
+              "Autenticação e autorização com Spring Security",
+              "Interface responsiva com Bootstrap 5",
+              "Validação de dados com Bean Validation (javax.validation)",
+              "Documentação da API via Swagger/OpenAPI",
+            ],
+          },
+        },
+        {
+          id: "5",
+          title: "FisioFlow",
+          date: "Jun/2026",
+          description:
+            "O projeto FisioFlow tem como objetivo desenvolver um sistema de gestão clínica baseado em web, adaptado às necessidades de um fisioterapeuta neurofuncional que atua em um ambiente híbrido—prestando cuidados tanto em casa dos pacientes quanto em uma clínica.",
+          tags: [
+            "Java",
+            "Tailwind CSS",
+            "TypeScript",
+            "React",
+            "Spring Boot",
+            "PostgreSQL",
+          ],
+          link: "https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2026-1-ti3-9545100-powerfiso",
+          image: "/projects-images/fisioflow.png",
+          techDetails: {
+            stack:
+              "Java 17 · Spring Boot 3 · React · TypeScript · Tailwind CSS · PostgreSQL",
+            frontend:
+              "Aplicações front-end em React com TypeScript e Tailwind CSS.",
+            backend:
+              "Spring Boot com controllers REST, serviços de negócio e repositórios JPA para persistência.",
+            database:
+              "PostgreSQL com normalização de tabelas, relacionamentos e constraints.",
+            architecture:
+              "Arquitetura em camadas: Controller → Service → Repository. Uso de DTOs para transferência de dados e validação de entrada.",
+            highlights: [
+              "CRUD completo para entidades Paciente, Consulta e Fisioterapeuta",
+              "Autenticação e autorização com Spring Security e JWT",
+              "Interface responsiva com Tailwind CSS",
+              "Validação de dados com Bean Validation (javax.validation)",
+              "Documentação da API via Swagger/OpenAPI",
             ],
           },
         },

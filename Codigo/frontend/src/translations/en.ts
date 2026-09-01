@@ -284,6 +284,40 @@ export const en = {
           link: "https://github.com/WesleySDz/OpenFlights-Spring",
           image: "/projects-images/openflights.jpg",
         },
+        {
+          id: "4",
+          title: "Cras Digital",
+          date: "Nov/2025",
+          description:
+            "The system was designed to replace manual procedures—previously carried out using physical forms and paper records—with secure, standardized, and accessible digital workflows.",
+          tags: [
+            "Java",
+            "Spring Boot",
+            "HTML",
+            "JavaScript",
+            "Bootstrap",
+            "MySQL",
+          ],
+          link: "https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2025-2-ti1-2010100-cras-digital",
+          image: "/projects-images/cras-digital.jpg",
+        },
+        {
+          id: "5",
+          title: "FisioFlow",
+          date: "Junho/2026",
+          description:
+            "The FisioFlow project aims to develop a web-based clinical management system tailored to the needs of a neurofunctional physiotherapist who works in a hybrid setting—providing care both in patients' homes and in a clinic.",
+          tags: [
+            "Java",
+            "Tailwind CSS",
+            "TypeScript",
+            "React",
+            "Spring Boot",
+            "PostgreSQL",
+          ],
+          link: "https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2026-1-ti3-9545100-powerfiso",
+          image: "/projects-images/fisioflow.png",
+        },
       ],
     },
 
@@ -320,6 +354,40 @@ export const en = {
           tags: ["Java"],
           link: "https://github.com/WesleySDz/OpenFlights-Spring",
           image: "/projects-images/openflights.jpg",
+        },
+        {
+          id: "4",
+          title: "Cras Digital",
+          date: "Nov/2025",
+          description:
+            "The system was designed to replace manual procedures—previously carried out using physical forms and paper records—with secure, standardized, and accessible digital workflows.",
+          tags: [
+            "Java",
+            "Spring Boot",
+            "HTML",
+            "JavaScript",
+            "Bootstrap",
+            "MySQL",
+          ],
+          link: "https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2025-2-ti1-2010100-cras-digital",
+          image: "/projects-images/cras-digital.jpg",
+        },
+        {
+          id: "5",
+          title: "FisioFlow",
+          date: "Jun/2026",
+          description:
+            "The FisioFlow project aims to develop a web-based clinical management system tailored to the needs of a neurofunctional physiotherapist who works in a hybrid setting—providing care both in patients' homes and in a clinic.",
+          tags: [
+            "Java",
+            "Tailwind CSS",
+            "TypeScript",
+            "React",
+            "Spring Boot",
+            "PostgreSQL",
+          ],
+          link: "https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2026-1-ti3-9545100-powerfiso",
+          image: "/projects-images/fisioflow.png",
         },
       ],
     },
@@ -413,6 +481,77 @@ export const en = {
               "Data normalization and validation in service layer",
               "Unit and integration tests with JUnit and Mockito",
               "Swagger/OpenAPI documentation for API endpoints",
+            ],
+          },
+        },
+        {
+          id: "4",
+          title: "Cras Digital",
+          date: "Nov/2025",
+          description:
+            "The system was designed to replace manual procedures—previously carried out using physical forms and paper records—with secure, standardized, and accessible digital workflows.",
+          tags: [
+            "Java",
+            "Spring Boot",
+            "HTML",
+            "JavaScript",
+            "Bootstrap",
+            "MySQL",
+          ],
+          link: "https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2025-2-ti1-2010100-cras-digital",
+          image: "/projects-images/cras-digital.jpg",
+          techDetails: {
+            stack: "Java 17 · Spring Boot 3 · Bootstrap 5 · MySQL",
+            frontend:
+              "Web interface built with Bootstrap 5 for responsive and accessible design. Forms for data entry and management.",
+            backend:
+              "Spring Boot application with RESTful endpoints, service layer for business logic, and repository layer for database interactions.",
+            database:
+              "MySQL relational database with normalized schema for managing records. JPA/Hibernate used for ORM.",
+            architecture:
+              "MVC architecture with separation of concerns between frontend, backend, and persistence layers. Secure authentication and authorization implemented.",
+            highlights: [
+              "Digital transformation of manual processes into secure workflows",
+              "Responsive web interface with Bootstrap 5",
+              "RESTful API design with Spring Boot",
+              "MySQL database design with entity relationships",
+              "Unit testing and integration testing for backend services",
+            ],
+          },
+        },
+        {
+          id: "5",
+          title: "FisioFlow",
+          date: "Jun/2026",
+          description:
+            "The FisioFlow project aims to develop a web-based clinical management system tailored to the needs of a neurofunctional physiotherapist who works in a hybrid setting—providing care both in patients' homes and in a clinic.",
+          tags: [
+            "Java",
+            "Tailwind CSS",
+            "TypeScript",
+            "React",
+            "Spring Boot",
+            "PostgreSQL",
+          ],
+          link: "https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2026-1-ti3-9545100-powerfiso",
+          image: "/projects-images/fisioflow.png",
+          techDetails: {
+            stack:
+              "Java 17 · Spring Boot 3 · React · TypeScript · Tailwind CSS · PostgreSQL",
+            frontend:
+              "React application with TypeScript, styled with Tailwind CSS. Responsive and accessible UI for managing patient data and appointments.",
+            backend:
+              "Spring Boot REST API with layered architecture (Controller, Service, Repository). Implements business logic for patient management, appointment scheduling, and reporting.",
+            database:
+              "PostgreSQL relational database with normalized schema for patients, appointments, and treatment records.",
+            architecture:
+              "Full-stack application with separation of concerns between frontend and backend. RESTful API design with JWT authentication and role-based access control.",
+            highlights: [
+              "Full-stack development with React frontend and Spring Boot backend",
+              "PostgreSQL database design with entity relationships",
+              "JWT authentication and role-based access control",
+              "Responsive UI with Tailwind CSS and accessibility considerations",
+              "Unit and integration testing for backend services with JUnit and Mockito",
             ],
           },
         },
