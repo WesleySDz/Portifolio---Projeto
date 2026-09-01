@@ -1,6 +1,11 @@
-/**
- */
 export const RECIPIENT_EMAIL = "wesleydomingos.dev@gmail.com";
+
+export const SOCIAL_LINKS = {
+  linkedin: "https://www.linkedin.com/in/wesley-domingos-8b2b51268/",
+  instagram: "https://www.instagram.com/wesleys.d/",
+  whatsapp: "https://wa.me/5531999999999",
+  github: "https://github.com/WesleySDz",
+};
 
 export interface ContactFormData {
   name: string;
@@ -22,3 +27,4 @@ export function sendContactEmail(formData: ContactFormData): void {
 
   window.location.href = mailtoUrl;
 }
+
