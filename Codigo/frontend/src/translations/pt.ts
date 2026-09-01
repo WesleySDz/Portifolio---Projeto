@@ -78,22 +78,24 @@ export const pt = {
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     items: [
       {
-        id: "1",
-        title: "Project Title",
-        date: "Maio/2024",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu.",
-        tags: ["React", "React", "React", "React"],
-        link: "https://github.com",
-        image: ""
+       id: "1",
+        title: "Tempus Dominus",
+        date: "Dez/2024",
+        description:
+          "A crescente demanda por produtividade gera estresse e dificulta tarefas básicas. Esse software resolve esse problema com ferramentas de gestão de tempo para organizar a rotina de forma eficiente e equilibrada, otimizando o esforço com base no Princípio de Pareto",
+        tags: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+        link: "https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2024-2-ti1-2010100-tempus-dominus",
+        image: "/projects-images/tempus-dominus.jpg"
       },
       {
         id: "2",
-        title: "Project Title",
-        date: "--/----",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        tags: ["React", "TypeScript"],
-        link: "https://github.com",
-        image: ""
+        title: "Voo Seguro",
+        date: "Dez/2024",
+        description:
+          "Realizar um sistema de gerenciamento para a Voo Seguro, que subtitua os métodos manuais antigos. Para isso propomos um software feito na linguagem C que irá auxiliar-los por meio da automatização do controle de dados",
+        tags: ["C"],
+        link: "https://github.com/nicolasksoares/Trabalho-Pr-tico",
+        image: "/projects-images/voo-seguro.png",
       },
       {
         id: "3",

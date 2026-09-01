@@ -6,7 +6,7 @@ export const en = {
     projects: "Projects",
     contact: "Contact",
     menu: "Menu",
-    role: "Software Engineer Student"
+    role: "Software Engineer Student",
   },
   vinyl: {
     title: "Vinyl Record Player",
@@ -14,84 +14,94 @@ export const en = {
   home: {
     im: "I'm",
     role: "Software Engineer Student",
-    musicPlayer: "Music Player"
+    musicPlayer: "Music Player",
   },
   musicPlayer: {
     title: "Music Player",
     playlist: "Playlist",
     nowPlaying: "Now Playing",
     shuffle: "Shuffle",
-    repeat: "Repeat"
+    repeat: "Repeat",
   },
   about: {
     title: "About Me",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum aut, quisquam nisi eaque rerum explicabo, nam exercitationem praesentium nemo dolor, fugit mollitia error nobis quae illo laudantium eligendi dicta esse."
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum aut, quisquam nisi eaque rerum explicabo, nam exercitationem praesentium nemo dolor, fugit mollitia error nobis quae illo laudantium eligendi dicta esse.",
   },
   experience: {
     title: "Experience",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     items: [
       {
         id: "1",
         title: "Title (Role)",
         company: "business",
         period: "Jan 2025 - Present",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
       },
       {
         id: "2",
         title: "Title (Role)",
         company: "business",
         period: "Jan 2025 - Present",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       },
       {
         id: "3",
         title: "Title (Role)",
         company: "business",
         period: "Jan 2025 - Present",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-      }
-    ]
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      },
+    ],
   },
   projects: {
     title: "My works",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     items: [
       {
         id: "1",
-        title: "Project Title",
-        date: "May/2024",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu.",
-        tags: ["React", "React", "React", "React"],
-        link: "https://github.com",
-        image: ""
+        title: "Tempus Dominus",
+        date: "Dez/2024",
+        description:
+          "The growing demand for productivity creates stress and makes basic tasks difficult. This software addresses this issue with time management tools designed to organize your routine efficiently and in a balanced way, optimizing effort based on the Pareto Principle.",
+        tags: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+        link: "https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2024-2-ti1-2010100-tempus-dominus",
+        image: "/projects-images/tempus-dominus.jpg",
       },
       {
         id: "2",
-        title: "Project Title",
-        date: "--/----",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        tags: ["React", "TypeScript"],
-        link: "https://github.com",
-        image: ""
+        title: "Voo Seguro",
+        date: "Dez/2024",
+        description:
+          "To develop a management system for Voo Seguro that replaces outdated manual methods. To this end, we propose software written in C that will assist the company by automating data management.",
+        tags: ["C"],
+        link: "https://github.com/nicolasksoares/Trabalho-Pr-tico",
+        image: "/projects-images/voo-seguro.png",
       },
       {
         id: "3",
         title: "Project Title",
         date: "--/----",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
         tags: ["React", "Tailwind"],
         link: "https://github.com",
-        image: ""
-      }
-    ]
+        image: "",
+      },
+    ],
   },
 
   contact: {
     title: "Contact",
     heading: "say hello",
-    description: "I am always open to discussing new opportunities, collaborating on innovative projects, or simply connecting to talk about technology and software engineering. Whether you have an idea, a job opportunity, or just want to say hello, feel free to reach out through my social channels or by sending me a direct message.",
+    description:
+      "I am always open to discussing new opportunities, collaborating on innovative projects, or simply connecting to talk about technology and software engineering. Whether you have an idea, a job opportunity, or just want to say hello, feel free to reach out through my social channels or by sending me a direct message.",
     sendEmail: "send email",
     modalTitle: "Send a message",
     modalSubtitle: "I'll get back to you as soon as possible.",
@@ -101,11 +111,10 @@ export const en = {
     topicOptions: {
       freelance: "Freelance",
       fulltime: "Full-time Job",
-      other: "Other"
+      other: "Other",
     },
     messageLabel: "Message",
     cancel: "Cancel",
-    send: "Send"
-  }
-
+    send: "Send",
+  },
 };
