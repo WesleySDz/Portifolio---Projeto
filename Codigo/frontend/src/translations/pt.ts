@@ -30,7 +30,7 @@ export const pt = {
   contact: {
     title: "Contato",
     heading: "diga olá",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    description: "Estou sempre aberto a novas oportunidades, colaborações em projetos inovadores ou para conversar sobre tecnologia e desenvolvimento de software. Se você tem uma ideia, proposta ou deseja trocar experiências, sinta-se à vontade para entrar em contato através das minhas redes ou me enviando uma mensagem direta.",
     sendEmail: "enviar email",
     modalTitle: "Enviar uma mensagem",
     modalSubtitle: "Retornarei o mais breve possível.",
@@ -83,7 +83,8 @@ export const pt = {
         date: "Maio/2024",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu.",
         tags: ["React", "React", "React", "React"],
-        link: "https://github.com"
+        link: "https://github.com",
+        image: ""
       },
       {
         id: "2",
@@ -91,7 +92,8 @@ export const pt = {
         date: "--/----",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
         tags: ["React", "TypeScript"],
-        link: "https://github.com"
+        link: "https://github.com",
+        image: ""
       },
       {
         id: "3",
@@ -99,10 +101,12 @@ export const pt = {
         date: "--/----",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
         tags: ["React", "Tailwind"],
-        link: "https://github.com"
+        link: "https://github.com",
+        image: ""
       }
     ]
   }
+
   
 };
 

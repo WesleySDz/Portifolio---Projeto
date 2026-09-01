@@ -64,7 +64,8 @@ export const en = {
         date: "May/2024",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu.",
         tags: ["React", "React", "React", "React"],
-        link: "https://github.com"
+        link: "https://github.com",
+        image: ""
       },
       {
         id: "2",
@@ -72,7 +73,8 @@ export const en = {
         date: "--/----",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
         tags: ["React", "TypeScript"],
-        link: "https://github.com"
+        link: "https://github.com",
+        image: ""
       },
       {
         id: "3",
@@ -80,14 +82,16 @@ export const en = {
         date: "--/----",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
         tags: ["React", "Tailwind"],
-        link: "https://github.com"
+        link: "https://github.com",
+        image: ""
       }
     ]
   },
+
   contact: {
     title: "Contact",
     heading: "say hello",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    description: "I am always open to discussing new opportunities, collaborating on innovative projects, or simply connecting to talk about technology and software engineering. Whether you have an idea, a job opportunity, or just want to say hello, feel free to reach out through my social channels or by sending me a direct message.",
     sendEmail: "send email",
     modalTitle: "Send a message",
     modalSubtitle: "I'll get back to you as soon as possible.",
