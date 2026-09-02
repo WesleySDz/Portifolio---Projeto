@@ -1,67 +1,161 @@
-# Portfólio - Wesley Sousa Domingos
+# Portfólio - Wesley Domingos
 
-## Descrição do Projeto
+Portfólio profissional desenvolvido para apresentar minha trajetória, experiências, projetos acadêmicos e pessoais, habilidades técnicas e formas de contato.
 
-Este é o projeto de desenvolvimento do meu portfólio profissional, com o objetivo de apresentar meus projetos, experiências profissionais, sobre mim e informações de contato.
+## Acesso online
 
-## Tecnologias Previstas
+**URL de produção:** [https://portifolio-projeto-wesley.vercel.app/](https://portifolio-projeto-wesley.vercel.app/)
 
-O projeto está sendo desenvolvido no frontend utilizando-se:
+## Funcionalidades
 
-- **[React](https://react.dev/)** Biblioteca principal para construção da interface.
-- **[TypeScript](https://www.typescriptlang.org/)** - Tipagem estática.
-- **[TailwindCSS](https://tailwindcss.com/)**  - Framework de CSS utilitário para estilização.
-- **[Vite](https://vitejs.dev/)** - Ferramenta de build super rápida.
+- Navegação entre Início, Sobre Mim, Experiência, Projetos e Contato.
+- Seleção de perfil para adaptar o conteúdo a visitantes, recrutadores e desenvolvedores.
+- Interface em português e inglês.
+- Reprodutor de música com playlist, aleatoriedade e repetição.
+- Galeria de projetos com prévias, tecnologias e lightbox.
+- Formulário de contato integrado ao cliente de e-mail por `mailto`.
+- Layout responsivo para desktop e dispositivos móveis.
 
-## Estrutura Inicial do Site
+## Tecnologias utilizadas
 
-A estrutura base do código (`Codigo/frontend/src`) está organizada da seguinte maneira:
+- [React](https://react.dev/) - Biblioteca para construção da interface.
+- [TypeScript](https://www.typescriptlang.org/) - Tipagem estática.
+- [Vite](https://vite.dev/) - Servidor de desenvolvimento e ferramenta de build.
+- [Tailwind CSS](https://tailwindcss.com/) - Framework utilitário de CSS.
+- [React Router](https://reactrouter.com/) - Roteamento das páginas.
+- [Lucide React](https://lucide.dev/) - Biblioteca de ícones.
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) - Tema, responsividade e estilos personalizados.
 
+## Dependências e bibliotecas
+
+### Produção
+
+| Pacote | Finalidade |
+| --- | --- |
+| `react` e `react-dom` | Núcleo da aplicação e renderização no navegador. |
+| `react-router-dom` | Definição e navegação entre rotas. |
+| `lucide-react` | Ícones da interface. |
+| `@tailwindcss/vite` | Integração do Tailwind CSS com o Vite. |
+
+### Desenvolvimento
+
+| Pacote | Finalidade |
+| --- | --- |
+| `typescript` | Compilação e verificação de tipos. |
+| `vite` | Desenvolvimento e geração do build. |
+| `@vitejs/plugin-react` | Suporte ao React no Vite. |
+| `tailwindcss` | Utilitários de estilização. |
+| `postcss` e `autoprefixer` | Processamento e compatibilidade do CSS. |
+| `oxlint` | Linting e análise estática. |
+| `@types/react`, `@types/react-dom` e `@types/node` | Tipos TypeScript das bibliotecas utilizadas. |
+
+As versões exatas estão em [Codigo/frontend/package.json](Codigo/frontend/package.json) e [Codigo/frontend/package-lock.json](Codigo/frontend/package-lock.json).
+
+## Estrutura de diretórios
+
+```text
+Portifolio---Projeto/
+├── Artefatos/
+│   ├── Diagramas/       # Diagramas do projeto
+│   └── Wireframes/      # Protótipos das telas
+├── Codigo/
+│   └── frontend/
+│       ├── public/      # Imagens, músicas, capas e ícones públicos
+│       │   ├── covers/
+│       │   ├── music/
+│       │   ├── projects-images/
+│       │   └── tech-icons/
+│       ├── src/
+│       │   ├── assets/          # Assets importados pela aplicação
+│       │   ├── components/      # Componentes reutilizáveis
+│       │   │   ├── experience/  # Elementos da experiência
+│       │   │   └── projects/    # Componentes de projetos
+│       │   ├── config/          # Contatos e links sociais
+│       │   ├── contexts/        # Idioma e modo de visualização
+│       │   ├── data/            # Tecnologias e faixas musicais
+│       │   ├── libs/            # Funções utilitárias
+│       │   ├── pages/           # Páginas da aplicação
+│       │   ├── translations/    # Português e inglês
+│       │   ├── App.tsx          # Rotas e provedores principais
+│       │   ├── App.css          # Estilos da aplicação
+│       │   └── index.css        # Tema global e estilos base
+│       ├── index.html           # Documento HTML de entrada
+│       ├── package.json         # Scripts e dependências
+│       ├── vite.config.ts       # Configuração do Vite
+│       └── vercel.json          # Rewrite das rotas na Vercel
+├── LICENSE
+└── README.md
 ```
-src/
-├── assets/           # Imagens, ícones e outros arquivos estáticos
-├── components/       # Componentes globais
-├── contexts/         # Contextos
-├── libs/             # Funções utilitárias
-├── pages/            # Páginas principais
-│   ├── Home.tsx
-│   ├── About.tsx
-│   ├── Experience.tsx
-│   ├── Projects.tsx
-│   └── Contact.tsx
-├── translations/     # Arquivos de internacionalização (textos e traduções)
-├── App.tsx           # Configuração de rotas
-└── main.tsx          # Ponto de entrada
+
+### Rotas disponíveis
+
+| Rota | Página |
+| --- | --- |
+| `/` | Início |
+| `/about` | Sobre Mim |
+| `/experience` | Experiência |
+| `/projects` | Projetos |
+| `/contact` | Contato |
+
+## Instalação local
+
+### Pré-requisitos
+
+- Node.js e npm instalados.
+- Git instalado para clonar o repositório.
+
+Na raiz do projeto, execute:
+
+```bash
+git clone https://github.com/WesleySDz/Portifolio---Projeto.git
+cd Portifolio---Projeto/Codigo/frontend
+npm install
 ```
 
-## 🎨 Protótipos das Telas (Design)
+## Execução em desenvolvimento
 
-Abaixo estão os wireframes que representam o design das telas do portfólio:
+```bash
+npm run dev
+```
 
-### Página Inicial (Home)
+O Vite exibirá no terminal o endereço local, normalmente `http://localhost:5173`.
 
-![Home](./Artefatos/Wireframes/Home.png)
+## Build de produção
 
-### Sobre Mim
+```bash
+npm run build
+```
 
-![Sobre Mim](./Artefatos/Wireframes/Sobre.png)
+O comando verifica os tipos e gera os arquivos otimizados em `dist`. Para servir o build localmente:
 
-### Experiência
+```bash
+npm run preview
+```
 
-![Experiência](./Artefatos/Wireframes/Experiencia.png)
+## Verificação de qualidade
 
-### Projetos
+```bash
+npm run lint
+```
 
-![Projetos](./Artefatos/Wireframes/Projetos.png)
+## Publicação
 
-### Contato
+O frontend pode ser publicado em serviços compatíveis com Vite, como a Vercel. Use `Codigo/frontend` como diretório do projeto e configure:
 
-![Contato](./Artefatos/Wireframes/Contato.png)
+- **Comando de instalação:** `npm install`
+- **Comando de build:** `npm run build`
+- **Diretório de saída:** `dist`
 
-### Menu de Navegação (Overlay)
+O arquivo `Codigo/frontend/vercel.json` mantém as rotas do React Router funcionando após a publicação.
 
-![Menu](./Artefatos/Wireframes/Menu.png)
+## Wireframes
 
-### Modal de Envio de Mensagem
+Os protótipos visuais estão em [Artefatos/Wireframes](Artefatos/Wireframes):
 
-![Mandar Mensagem](./Artefatos/Wireframes/MandarMensagemModal.png)
+- [Página inicial](Artefatos/Wireframes/Home.png)
+- [Sobre Mim](Artefatos/Wireframes/Sobre.png)
+- [Experiência](Artefatos/Wireframes/Experiencia.png)
+- [Projetos](Artefatos/Wireframes/Projetos.png)
+- [Contato](Artefatos/Wireframes/Contato.png)
+- [Menu de navegação](Artefatos/Wireframes/Menu.png)
+- [Modal de envio de mensagem](Artefatos/Wireframes/MandarMensagemModal.png)
