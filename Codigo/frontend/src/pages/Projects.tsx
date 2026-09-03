@@ -1,7 +1,15 @@
 import { useState } from "react";
 import { useLanguage } from "../contexts/LanguageContext";
 import { useViewMode } from "../contexts/ViewModeContext";
-import { ChevronDown, ChevronRight, Database, Server, Globe, Shield, Layers } from "lucide-react";
+import {
+  ChevronDown,
+  ChevronRight,
+  Database,
+  Server,
+  Globe,
+  Shield,
+  Layers,
+} from "lucide-react";
 import { CalendarCustomIcon } from "../components/projects/CalendarCustomIcon";
 import { ProjectBackground } from "../components/projects/ProjectBackground";
 import { ProjectPreview } from "../components/projects/ProjectPreview";
@@ -42,11 +50,19 @@ interface ProjectItem {
 }
 
 /* ─── Camada Técnica (modo Developer) ─── */
-function TechDetailsPanel({ details, link }: { details: TechDetails; link: string }) {
+function TechDetailsPanel({
+  details,
+  link,
+}: {
+  details: TechDetails;
+  link: string;
+}) {
   return (
     <div
       className="mt-6 pt-6 border-t border-[#9315dc]/30"
-      style={{ animation: "techExpand 0.4s cubic-bezier(0.16, 1, 0.3, 1) both" }}
+      style={{
+        animation: "techExpand 0.4s cubic-bezier(0.16, 1, 0.3, 1) both",
+      }}
     >
       {/* CTA GitHub de alta prioridade */}
       <a
@@ -55,7 +71,8 @@ function TechDetailsPanel({ details, link }: { details: TechDetails; link: strin
         rel="noopener noreferrer"
         className="inline-flex items-center gap-2.5 mb-6 px-5 py-2.5 rounded-xl text-sm font-medium font-sans no-underline transition-all duration-300 hover:scale-105"
         style={{
-          background: "linear-gradient(135deg, rgba(176,38,255,0.2) 0%, rgba(106,0,200,0.15) 100%)",
+          background:
+            "linear-gradient(135deg, rgba(176,38,255,0.2) 0%, rgba(106,0,200,0.15) 100%)",
           border: "1px solid rgba(176,38,255,0.5)",
           color: "#e4a5ff",
           boxShadow: "0 0 20px rgba(176,38,255,0.15)",
@@ -70,17 +87,37 @@ function TechDetailsPanel({ details, link }: { details: TechDetails; link: strin
       <div className="mb-4">
         <div className="flex items-center gap-2 mb-2">
           <Layers size={14} className="text-[#d946ef]" />
-          <span className="text-[10px] uppercase tracking-widest text-white/40 font-sans">Stack</span>
+          <span className="text-[10px] uppercase tracking-widest text-white/40 font-sans">
+            Stack
+          </span>
         </div>
-        <p className="text-sm font-mono text-[#e4a5ff] leading-relaxed pl-5">{details.stack}</p>
+        <p className="text-sm font-mono text-[#e4a5ff] leading-relaxed pl-5">
+          {details.stack}
+        </p>
       </div>
 
       {/* Grid de detalhes */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
-        <TechDetailBlock icon={Globe} label="Frontend" value={details.frontend} />
-        <TechDetailBlock icon={Server} label="Backend" value={details.backend} />
-        <TechDetailBlock icon={Database} label="Persistência" value={details.database} />
-        <TechDetailBlock icon={Shield} label="Arquitetura" value={details.architecture} />
+        <TechDetailBlock
+          icon={Globe}
+          label="Frontend"
+          value={details.frontend}
+        />
+        <TechDetailBlock
+          icon={Server}
+          label="Backend"
+          value={details.backend}
+        />
+        <TechDetailBlock
+          icon={Database}
+          label="Persistência"
+          value={details.database}
+        />
+        <TechDetailBlock
+          icon={Shield}
+          label="Arquitetura"
+          value={details.architecture}
+        />
       </div>
 
       {/* Highlights */}
@@ -92,10 +129,12 @@ function TechDetailsPanel({ details, link }: { details: TechDetails; link: strin
           {details.highlights.map((h, i) => (
             <li key={i} className="flex items-start gap-2.5">
               <span
-                className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0"
+                className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0"
                 style={{ background: "#b026ff", boxShadow: "0 0 6px #b026ff" }}
               />
-              <span className="text-white/75 text-xs sm:text-sm font-sans leading-relaxed">{h}</span>
+              <span className="text-white/75 text-xs sm:text-sm font-sans leading-relaxed">
+                {h}
+              </span>
             </li>
           ))}
         </ul>
@@ -117,9 +156,13 @@ function TechDetailBlock({
     <div className="rounded-xl p-3.5 bg-[#0e0515]/60 border border-[#9315dc]/20">
       <div className="flex items-center gap-1.5 mb-1.5">
         <Icon size={13} className="text-[#d946ef]" />
-        <span className="text-[10px] uppercase tracking-widest text-white/40 font-sans">{label}</span>
+        <span className="text-[10px] uppercase tracking-widest text-white/40 font-sans">
+          {label}
+        </span>
       </div>
-      <p className="text-white/70 text-xs font-sans leading-relaxed m-0">{value}</p>
+      <p className="text-white/70 text-xs font-sans leading-relaxed m-0">
+        {value}
+      </p>
     </div>
   );
 }

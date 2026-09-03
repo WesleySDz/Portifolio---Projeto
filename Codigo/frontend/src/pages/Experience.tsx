@@ -8,7 +8,6 @@ export function Experience() {
   const { t } = useLanguage();
   const { viewMode } = useViewMode();
 
-  // Começa com o primeiro item aberto por padrão
   const [openItems, setOpenItems] = useState<Record<string, boolean>>({
     "1": true,
   });

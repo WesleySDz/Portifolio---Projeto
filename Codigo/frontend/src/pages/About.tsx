@@ -44,8 +44,8 @@ export function About() {
     viewMode === "visitor"
       ? visitorIcons
       : viewMode === "recruiter"
-      ? recruiterIcons
-      : developerIcons;
+        ? recruiterIcons
+        : developerIcons;
 
   /* Label da seção de cards */
   const cardsTitle =
@@ -68,15 +68,15 @@ export function About() {
     viewMode === "visitor"
       ? Terminal
       : viewMode === "recruiter"
-      ? Briefcase
-      : Code2;
+        ? Briefcase
+        : Code2;
 
   const overviewLabel =
     viewMode === "visitor"
       ? "Overview"
       : viewMode === "recruiter"
-      ? "Perfil Profissional"
-      : "Tech Profile";
+        ? "Perfil Profissional"
+        : "Tech Profile";
 
   return (
     <div className="relative flex-1 flex flex-col justify-between overflow-hidden">
@@ -143,7 +143,7 @@ export function About() {
 
       {/* ─── Conteúdo Principal ───────────────────────────────────────── */}
       <main className="flex-1 flex flex-col justify-start px-6 sm:px-12 md:px-20 lg:px-24 pt-1 pb-16 md:pb-20 relative z-10 max-w-6xl">
-        {/* ─── 1. Breve Descrição (Bio) ─── */}
+        {/* ─── Bio─── */}
         <section
           className="mb-8 md:mb-10"
           style={{
@@ -165,7 +165,7 @@ export function About() {
           </p>
         </section>
 
-        {/* ─── 2. Cards (Objetivos / Destaques) ─── */}
+        {/* ─── Cards (Objetivos / Destaques) ─── */}
         <section
           className="mb-8 md:mb-10"
           style={{
@@ -213,7 +213,7 @@ export function About() {
           </div>
         </section>
 
-        {/* ─── 3. Tags de Interesses / Stack ─── */}
+        {/* Tags de Interesses / Stack ─── */}
         <section
           style={{
             animation: "aboutFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both",

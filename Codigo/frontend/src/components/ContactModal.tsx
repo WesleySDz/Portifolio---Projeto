@@ -89,7 +89,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
       setErrorMessage(
         language === "pt"
           ? "Por favor, preencha todos os campos antes de enviar."
-          : "Please fill in all fields before submitting."
+          : "Please fill in all fields before submitting.",
       );
       return;
     }
@@ -268,8 +268,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
                         {topicOptions.map((option, idx) => {
                           const isSelected = option.id === selectedTopic;
-                          const showDivider =
-                            isRecruiter && idx === 2;
+                          const showDivider = isRecruiter && idx === 2;
                           return (
                             <div key={option.id}>
                               {showDivider && (
@@ -285,15 +284,15 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                   isSelected
                                     ? "bg-accent text-white font-medium shadow-(--shadow-neon-sm)"
                                     : option.priority
-                                    ? "text-white hover:bg-(--bg-glass-hover)"
-                                    : "text-(--text-secondary) hover:bg-(--bg-glass-hover) hover:text-white"
+                                      ? "text-white hover:bg-(--bg-glass-hover)"
+                                      : "text-(--text-secondary) hover:bg-(--bg-glass-hover) hover:text-white"
                                 }`}
                               >
                                 <div className="flex items-center gap-2">
                                   {option.priority && !isSelected && (
                                     <Star
                                       size={13}
-                                      className="fill-[#d946ef] text-[#d946ef] flex-shrink-0"
+                                      className="fill-[#d946ef] text-[#d946ef] shrink-0"
                                     />
                                   )}
                                   <span>{option.label}</span>

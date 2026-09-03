@@ -36,8 +36,8 @@ export function Navbar() {
     viewMode === "recruiter"
       ? "/contact"
       : viewMode === "developer"
-      ? "/projects"
-      : null;
+        ? "/projects"
+        : null;
 
   const getHeaderTitle = () => {
     switch (location.pathname) {
@@ -143,8 +143,8 @@ export function Navbar() {
                           isActive
                             ? "bg-linear-to-r from-accent/20 to-accent/5 border-(--border-accent) text-white shadow-[0_0_20px_var(--glow-accent-subtle)] font-medium"
                             : isPriority
-                            ? "border-white/15 text-white/80 hover:text-white hover:bg-(--bg-glass) hover:translate-x-1.5 bg-white/[0.03]"
-                            : "text-(--text-muted) border-transparent hover:text-white hover:bg-(--bg-glass) hover:translate-x-1.5"
+                              ? "border-white/15 text-white/80 hover:text-white hover:bg-(--bg-glass) hover:translate-x-1.5 bg-white/3"
+                              : "text-(--text-muted) border-transparent hover:text-white hover:bg-(--bg-glass) hover:translate-x-1.5"
                         }`}
                       >
                         <div className="flex items-center gap-4">
@@ -153,8 +153,8 @@ export function Navbar() {
                               isActive
                                 ? "bg-accent text-white shadow-[0_0_12px_var(--glow-accent-strong)]"
                                 : isPriority
-                                ? "bg-accent/15 text-accent-light group-hover:text-white group-hover:bg-accent/20"
-                                : "bg-white/5 text-(--text-muted) group-hover:text-white group-hover:bg-accent/20"
+                                  ? "bg-accent/15 text-accent-light group-hover:text-white group-hover:bg-accent/20"
+                                  : "bg-white/5 text-(--text-muted) group-hover:text-white group-hover:bg-accent/20"
                             }`}
                           >
                             <Icon size={20} />
@@ -170,8 +170,7 @@ export function Navbar() {
                               borderColor: "rgba(217,70,239,0.35)",
                               background: "rgba(217,70,239,0.08)",
                             }}
-                          >
-                                                      </span>
+                          ></span>
                         )}
                         <ChevronRight
                           size={18}
